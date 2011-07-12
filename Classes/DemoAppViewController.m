@@ -20,7 +20,6 @@
 
 #import "DemoAppViewController.h"
 #import "NewsFeedViewController.h"
-#import "AuthContext.h"
 #import "MappingManager.h"
 
 @implementation DemoAppViewController
@@ -73,23 +72,51 @@
 	[super viewWillAppear:animated];
 }
 
+- (void)initRestKitAndUser {
+	// Initialize RestKit mappings.
+	[MappingManager initWithBaseURL:[AuthContext context].instanceUrl];
+	
+	// Request population of the User by RestKit.
+	[user release];
+	user = [[User alloc] init];
+	user.userId = @"me";
+	
+	RKObjectLoader* loader = [[RKObjectManager sharedManager] objectLoaderForObject:user method:RKRequestMethodGET delegate:self];
+	[[AuthContext context] addOAuthHeader:loader];	
+	[loader setObjectMapping:[[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[User class]]];
+	[loader send];
+}
+
 - (void)viewDidAppear:(BOOL)animated {	
-	if ([[AuthContext context] accessToken] != nil) {
-		// Initialize RestKit mappings.
-		[MappingManager initWithBaseURL:[AuthContext context].instanceUrl];
+	if ([[AuthContext context] accessToken] == nil) {
+		// Retrieve the "PPConsumerKey" value from the info plist.	
+		NSString* consumerKey = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"PPConsumerKey"];
+		if ((consumerKey == nil) || ([consumerKey length] <= 0)) {
+			NSLog(@"!!!!!!!YOU MUST SET THE PPConsumerKey VALUE IN THE INFO PLIST FOR THIS APP TO RUN!!!!!!!!!");
+			[[NSThread mainThread] exit];
+		}
 		
-		// Request population of the User by RestKit.
-		[user release];
-		user = [[User alloc] init];
-		user.userId = @"me";
+		NSLog(@"Consumer key: %@", consumerKey);
 		
-		RKObjectLoader* loader = [[RKObjectManager sharedManager] objectLoaderForObject:user method:RKRequestMethodGET delegate:self];
-		[[AuthContext context] addOAuthHeader:loader];	
-		[loader setObjectMapping:[[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[User class]]];
-		[loader send];
+		BOOL isGetting = [[AuthContext context] startGettingAccessTokenWithConsumerKey:consumerKey 
+																			  delegate:self];
+		if (isGetting) {
+			[stateLbl setText:@"Fetching access token..."];
+		}
+	} else {
+		[self initRestKitAndUser];
 	}
 	
 	[super viewDidAppear:animated];
+}
+
+- (void)refreshCompleted {
+	NSLog(@"Finished trying to fetch access token: %@", [[AuthContext context] accessToken]);
+	
+	[self updateUi];
+	if ([[AuthContext context] accessToken] != nil) {
+		[self initRestKitAndUser];
+	}
 }
 
 - (IBAction)login:(id)sender {
@@ -102,7 +129,7 @@
 	
 	OAuthViewController* oauthViewController = 
 	[[[OAuthViewController alloc] 
-	  initWithLoginUrl:@"https://gus.soma.salesforce.com/services/oauth2/authorize"
+	  initWithLoginUrl:@"https://login.salesforce.com/services/oauth2/authorize"
 	  callbackUrl:@"https://login.salesforce.com/services/oauth2/success"
 	  consumerKey:consumerKey] autorelease];
 	

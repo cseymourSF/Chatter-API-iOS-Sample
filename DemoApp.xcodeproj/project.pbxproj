@@ -36,6 +36,7 @@
 		A3B0F94013CA373D00CD4E99 /* MappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B0F93F13CA373D00CD4E99 /* MappingManager.m */; };
 		A3B0FAC213CA427D00CD4E99 /* libRestKitJSONParserYAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B0F85513CA2E1400CD4E99 /* libRestKitJSONParserYAJL.a */; };
 		A3C82AA313CC0F3D00DA5E5E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39CBE0213848615006F68E4 /* Security.framework */; };
+		A3C82B1113CC193000DA5E5E /* Identity.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C82B1013CC193000DA5E5E /* Identity.m */; };
 		A3CD6C961385C4C0000116E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CD6C951385C4C0000116E4 /* User.m */; };
 		A3CD6C991385C60F000116E4 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CD6C981385C60F000116E4 /* Address.m */; };
 		A3E5312713940864004CCE49 /* UserFeedPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E5312613940864004CCE49 /* UserFeedPage.m */; };
@@ -171,6 +172,8 @@
 		A3B0F83A13CA2E1400CD4E99 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = Classes/RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		A3B0F93E13CA373D00CD4E99 /* MappingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingManager.h; sourceTree = "<group>"; };
 		A3B0F93F13CA373D00CD4E99 /* MappingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingManager.m; sourceTree = "<group>"; };
+		A3C82B0F13CC193000DA5E5E /* Identity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Identity.h; sourceTree = "<group>"; };
+		A3C82B1013CC193000DA5E5E /* Identity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Identity.m; sourceTree = "<group>"; };
 		A3CD6C941385C4C0000116E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		A3CD6C951385C4C0000116E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A3CD6C971385C60F000116E4 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
@@ -333,6 +336,8 @@
 				A3E5312413940846004CCE49 /* Feed */,
 				A3B0F93E13CA373D00CD4E99 /* MappingManager.h */,
 				A3B0F93F13CA373D00CD4E99 /* MappingManager.m */,
+				A3C82B0F13CC193000DA5E5E /* Identity.h */,
+				A3C82B1013CC193000DA5E5E /* Identity.m */,
 			);
 			name = RestObjects;
 			sourceTree = "<group>";
@@ -550,6 +555,7 @@
 				A3B0F7E513CA230200CD4E99 /* OAuthViewController.m in Sources */,
 				A3B0F7EE13CA234500CD4E99 /* AuthContext.m in Sources */,
 				A3B0F94013CA373D00CD4E99 /* MappingManager.m in Sources */,
+				A3C82B1113CC193000DA5E5E /* Identity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,8 +21,9 @@
 #import "OAuthViewController.h"
 #import "User.h"
 #import "PhotoFetcher.h"
+#import "AuthContext.h"
 
-@interface DemoAppViewController : UIViewController<RKObjectLoaderDelegate, PhotoFetcherDelegate> {
+@interface DemoAppViewController : UIViewController<RKObjectLoaderDelegate, PhotoFetcherDelegate, AccessTokenRefreshDelegate> {
 	UIButton* exploreBtn;
 	UILabel* stateLbl;
 	UILabel* nameLbl;
