@@ -33,7 +33,7 @@
 	self = [super init];
 	
 	if (self != nil) {
-		self.newsPage = [NewsFeedPage object];
+		self.newsPage = [[NewsFeedPage alloc] init];
 	}
 	
 	return self;
@@ -43,7 +43,7 @@
 	return @"News";
 }
 
-- (FeedPage*)page {
+- (FeedItemPage*)page {
 	return self.newsPage;
 }
 

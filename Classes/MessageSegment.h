@@ -18,10 +18,9 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "RKObject.h"
 #import "UserSummary.h"
 
-@interface MessageSegment : RKObject {
+@interface MessageSegment : NSObject {
 	// Common
 	NSString* type;
 	NSString* text;
@@ -35,11 +34,12 @@
 	// Mention
 	NSString* name;
 	UserSummary* user;
-	// accessibility indicator
 	
 	// More Changes
 	int moreChangesCount;
 }
+
++(void)setupMapping:(RKObjectManager*)manager;
 
 @property(nonatomic, retain) NSString* type;
 @property(nonatomic, retain) NSString* text;

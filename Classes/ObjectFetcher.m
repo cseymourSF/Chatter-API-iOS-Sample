@@ -19,51 +19,55 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "ObjectFetcher.h"
-#import "RKObjectManager.h"
+#import "AuthContext.h"
 
 @implementation ObjectFetcher
 
 @synthesize tag;
 @synthesize obj;
-@synthesize myDelegate;
+@synthesize delegate;
 
-- initWithTag:(NSString*)inTag object:(RKObject*)inObj delegate:(NSObject<ObjectFetcherDelegate>*)inDelegate {
+- initWithTag:(NSString*)inTag object:(id)inObj delegate:(NSObject<ObjectFetcherDelegate>*)inDelegate {
 	self = [super init];
 	
 	if (self != nil) {
 		self.tag = inTag;
 		self.obj = inObj;
-		self.myDelegate = inDelegate;
+		self.delegate = inDelegate;
 	}
 	
 	return self;
 }
-	
+
 - (void)dealloc {
 	[tag release];
 	[obj release];
-
+	
 	[super dealloc];
 }
 
 - (void)fetch {
-	[[RKObjectManager sharedManager] getObject:self.obj delegate:self];
+	RKObjectLoader* loader = [[RKObjectManager sharedManager] objectLoaderForObject:self.obj method:RKRequestMethodGET delegate:self];
+	[[AuthContext context] addOAuthHeader:loader];	
+	
+	[loader setObjectMapping:[[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[self.obj class]]];
+	[loader send];
 }
 
 // RKObjectLoaderDelegate implementation
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects {
-	[myDelegate retrievalCompleted:self.tag withSuccess:TRUE];
+	[delegate retrievalCompleted:self.tag withSuccess:TRUE];
 }
 
 - (void)objectLoaderDidLoadUnexpectedResponse:(RKObjectLoader *)objectLoader {
 	NSLog(@"Fetch for %@ failed unexpectedly", self.tag);
-	[myDelegate retrievalCompleted:self.tag withSuccess:FALSE];
+	[delegate retrievalCompleted:self.tag withSuccess:FALSE];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
 	NSLog(@"Fetch for %@ failed with error: %@", self.tag, error); 
-	[myDelegate retrievalCompleted:self.tag withSuccess:FALSE];
+	[delegate retrievalCompleted:self.tag withSuccess:FALSE];
 }
 
 @end

@@ -30,20 +30,16 @@
 @synthesize url;
 @synthesize user;
 
-+ (NSDictionary*)elementToPropertyMappings {  
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:@"type" forKey:@"type"];
-	[dict setObject:@"text" forKey:@"text"];
-	[dict setObject:@"name" forKey:@"name"];
-	[dict setObject:@"tag" forKey:@"tag"];
-	[dict setObject:@"url" forKey:@"url"];
-	return [dict autorelease];  
-} 
-
-+ (NSDictionary*)elementToRelationshipMappings {
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:@"user" forKey:@"user"];
-	return [dict autorelease];
++(void)setupMapping:(RKObjectManager*)manager {
+	RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[MessageSegment class]];
+	
+	[mapping mapAttributes:@"text", @"type", @"name", @"tag", @"url", nil];
+	
+	// Assuming that UserSummary already registered mappings.
+	RKObjectMapping* userSummaryMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[UserSummary class]];
+	[mapping hasOne:@"user" withObjectMapping:userSummaryMapping];
+	
+	[manager.mappingProvider addObjectMapping:mapping];
 }
 
 - (void)dealloc {

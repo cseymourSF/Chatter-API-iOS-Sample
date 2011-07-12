@@ -28,15 +28,11 @@
 @synthesize street;
 @synthesize zip;
 
-+ (NSDictionary*)elementToPropertyMappings {  
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:@"city" forKey:@"city"];
-	[dict setObject:@"country" forKey:@"country"];
-	[dict setObject:@"state" forKey:@"state"];
-	[dict setObject:@"street" forKey:@"street"];
-	[dict setObject:@"zip" forKey:@"zip"];
-	return [dict autorelease];  
-}  
++(void)setupMapping:(RKObjectManager*)manager {
+	RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Address class]];
+	[mapping mapAttributes:@"city", @"country", @"state", @"street", @"zip", nil ];
+	[manager.mappingProvider addObjectMapping:mapping];
+}
 
 - (void)dealloc {
 	[city release];

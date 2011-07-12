@@ -19,7 +19,6 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "UserSummary.h"
-#import "RKObjectManager.h"
 
 @implementation UserSummary
 
@@ -30,28 +29,21 @@
 @synthesize title;
 @synthesize photo;
 
-+ (NSDictionary*)elementToPropertyMappings {  
-	return [UserSummary elementToPropertyMappingsMutable];
++(void)setupMapping:(RKObjectManager*)manager {
+	RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[UserSummary class]];
+	[UserSummary populateMapping:mapping];
+	[manager.mappingProvider addObjectMapping:mapping];
 }
 
-+ (NSMutableDictionary*)elementToPropertyMappingsMutable {  
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:@"userId" forKey:@"id"];
-	[dict setObject:@"firstName" forKey:@"firstName"];
-	[dict setObject:@"lastName" forKey:@"lastName"];
-	[dict setObject:@"name" forKey:@"name"];
-	[dict setObject:@"title" forKey:@"title"];
-	return [dict autorelease];  
-}  
-
-+ (NSDictionary*)elementToRelationshipMappings {
-	return [UserSummary elementToRelationshipMappingsMutable];
-}
-
-+ (NSMutableDictionary*)elementToRelationshipMappingsMutable {
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:@"photo" forKey:@"photo"];
-	return [dict autorelease];
++(void)populateMapping:(RKObjectMapping*)mapping {
+	// TODO: Do repetitive tasks in a nicer way.
+	
+	[mapping mapAttributes:@"firstName", @"lastName", @"name", @"title", nil];
+	[mapping addAttributeMapping:[RKObjectAttributeMapping mappingFromKeyPath:@"id" toKeyPath:@"userId"]];
+	
+	// Assuming that the Photo mapping is registered.
+	RKObjectMapping* photoMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[Photo class]];
+	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"photo" toKeyPath:@"photo" objectMapping:photoMapping]];
 }
 
 - (void)dealloc {

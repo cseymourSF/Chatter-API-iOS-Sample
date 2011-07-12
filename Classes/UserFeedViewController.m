@@ -34,7 +34,7 @@
 	
 	if (self != nil) {
 		self.userName = inUserName;
-		self.userPage = [UserFeedPage object];
+		self.userPage = [[UserFeedPage alloc] init];
 		self.userPage.userId = inUserId;
 	}
 	
@@ -45,7 +45,7 @@
 	return self.userName;
 }
 
-- (FeedPage*)page {
+- (FeedItemPage*)page {
 	return self.userPage;
 }
 

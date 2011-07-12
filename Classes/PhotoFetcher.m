@@ -19,7 +19,7 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "PhotoFetcher.h"
-#import "Authenticator.h"
+#import "AuthContext.h"
 
 @implementation PhotoFetcher
 
@@ -54,17 +54,8 @@
 	// Make a request.
 	NSMutableURLRequest* photoRequest = [[[NSMutableURLRequest alloc] initWithURL:self.url] autorelease];
 	[photoRequest setHTTPMethod:@"GET"];
-
-	// Authorize the request.
-	// TODO: Do this asynchronously.
-	[[Authenticator auth] authorizeRequest:photoRequest completionHandler:^(NSError *error) {
-		if (error == nil) {
-			self.conn = [NSURLConnection connectionWithRequest:photoRequest delegate:self];
-		} else {
-			NSLog(@"Failed to authorize photo request: %@", error);
-			return;
-		}
-	}];
+	[[AuthContext context] addOAuthHeaderToNSRequest:photoRequest];
+	self.conn = [NSURLConnection connectionWithRequest:photoRequest delegate:self];
 }
 
 // ================
@@ -92,7 +83,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	UIImage* image = [UIImage imageWithData:self.data];
-
+	
 	// Report to the delegate.
 	[self.delegate retrievalCompleted:self.tag image:image];
 	

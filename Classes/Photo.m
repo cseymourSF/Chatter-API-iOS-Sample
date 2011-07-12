@@ -25,12 +25,11 @@
 @synthesize smallPhotoUrl;
 @synthesize largePhotoUrl;
 
-+ (NSDictionary*)elementToPropertyMappings {  
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:@"smallPhotoUrl" forKey:@"smallPhotoUrl"];
-	[dict setObject:@"largePhotoUrl" forKey:@"largePhotoUrl"];
-	return dict;  
-}  
++(void)setupMapping:(RKObjectManager*)manager {
+	RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Photo class]];
+	[mapping mapAttributes:@"smallPhotoUrl", @"largePhotoUrl", nil ];
+	[manager.mappingProvider addObjectMapping:mapping];
+}
 
 - (void)dealloc {
 	[smallPhotoUrl release];

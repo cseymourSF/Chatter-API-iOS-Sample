@@ -18,9 +18,7 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "RKObject.h"
-
-@interface Address : RKObject {
+@interface Address : NSObject {
 	NSString* city;
 	NSString* country;
 	NSString* state;
@@ -33,5 +31,7 @@
 @property(nonatomic, retain) NSString* state;
 @property(nonatomic, retain) NSString* street;
 @property(nonatomic, retain) NSString* zip;
+
++(void)setupMapping:(RKObjectManager*)manager;
 
 @end

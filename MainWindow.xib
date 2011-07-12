@@ -81,7 +81,7 @@
 								<object class="IBUILabel" id="646719840">
 									<reference key="NSNextResponder" ref="466692805"/>
 									<int key="NSvFlags">292</int>
-									<string key="NSFrame">{{177, 20}, {208, 21}}</string>
+									<string key="NSFrame">{{86, 20}, {208, 21}}</string>
 									<reference key="NSSuperview" ref="466692805"/>
 									<bool key="IBUIOpaque">NO</bool>
 									<bool key="IBUIClipsSubviews">YES</bool>
@@ -103,7 +103,7 @@
 								<object class="IBUIButton" id="744427819">
 									<reference key="NSNextResponder" ref="466692805"/>
 									<int key="NSvFlags">292</int>
-									<string key="NSFrame">{{84, 163}, {129, 37}}</string>
+									<string key="NSFrame">{{93, 361}, {133, 35}}</string>
 									<reference key="NSSuperview" ref="466692805"/>
 									<bool key="IBUIOpaque">NO</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -116,7 +116,7 @@
 										<int key="NSfFlags">16</int>
 									</object>
 									<int key="IBUIButtonType">1</int>
-									<string key="IBUINormalTitle">Explore Social</string>
+									<string key="IBUINormalTitle">Explore Feeds!</string>
 									<reference key="IBUIHighlightedTitleColor" ref="346876724"/>
 									<object class="NSColor" key="IBUINormalTitleColor">
 										<int key="NSColorSpace">1</int>
@@ -127,36 +127,17 @@
 										<bytes key="NSWhite">MC41AA</bytes>
 									</object>
 								</object>
-								<object class="IBUIButton" id="1007287024">
-									<reference key="NSNextResponder" ref="466692805"/>
-									<int key="NSvFlags">292</int>
-									<string key="NSFrame">{{86, 298}, {124, 37}}</string>
-									<reference key="NSSuperview" ref="466692805"/>
-									<bool key="IBUIOpaque">NO</bool>
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-									<int key="IBUIContentHorizontalAlignment">0</int>
-									<int key="IBUIContentVerticalAlignment">0</int>
-									<reference key="IBUIFont" ref="565026852"/>
-									<int key="IBUIButtonType">1</int>
-									<string key="IBUINormalTitle">Configure</string>
-									<reference key="IBUIHighlightedTitleColor" ref="346876724"/>
-									<object class="NSColor" key="IBUINormalTitleColor">
-										<int key="NSColorSpace">1</int>
-										<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-									</object>
-									<reference key="IBUINormalTitleShadowColor" ref="752731624"/>
-								</object>
 								<object class="IBUILabel" id="967419967">
 									<reference key="NSNextResponder" ref="466692805"/>
 									<int key="NSvFlags">292</int>
-									<string key="NSFrame">{{20, 20}, {149, 21}}</string>
+									<string key="NSFrame">{{20, 20}, {58, 21}}</string>
 									<reference key="NSSuperview" ref="466692805"/>
 									<bool key="IBUIOpaque">NO</bool>
 									<bool key="IBUIClipsSubviews">YES</bool>
 									<int key="IBUIContentMode">7</int>
 									<bool key="IBUIUserInteractionEnabled">NO</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-									<string key="IBUIText">Salesforce Status:</string>
+									<string key="IBUIText">Status:</string>
 									<object class="NSFont" key="IBUIFont">
 										<string key="NSName">Helvetica-Bold</string>
 										<double key="NSSize">17</double>
@@ -166,6 +147,99 @@
 									<reference key="IBUIHighlightedColor" ref="346876724"/>
 									<int key="IBUIBaselineAdjustment">1</int>
 									<float key="IBUIMinimumFontSize">10</float>
+								</object>
+								<object class="IBUIButton" id="134601894">
+									<reference key="NSNextResponder" ref="466692805"/>
+									<int key="NSvFlags">292</int>
+									<string key="NSFrame">{{138, 49}, {72, 37}}</string>
+									<reference key="NSSuperview" ref="466692805"/>
+									<bool key="IBUIOpaque">NO</bool>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+									<int key="IBUIContentHorizontalAlignment">0</int>
+									<int key="IBUIContentVerticalAlignment">0</int>
+									<reference key="IBUIFont" ref="565026852"/>
+									<int key="IBUIButtonType">1</int>
+									<string key="IBUINormalTitle">Log In</string>
+									<reference key="IBUIHighlightedTitleColor" ref="346876724"/>
+									<object class="NSColor" key="IBUINormalTitleColor">
+										<int key="NSColorSpace">1</int>
+										<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+									</object>
+									<reference key="IBUINormalTitleShadowColor" ref="752731624"/>
+								</object>
+								<object class="IBUIButton" id="737756916">
+									<reference key="NSNextResponder" ref="466692805"/>
+									<int key="NSvFlags">292</int>
+									<string key="NSFrame">{{218, 49}, {82, 37}}</string>
+									<reference key="NSSuperview" ref="466692805"/>
+									<bool key="IBUIOpaque">NO</bool>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+									<int key="IBUIContentHorizontalAlignment">0</int>
+									<int key="IBUIContentVerticalAlignment">0</int>
+									<reference key="IBUIFont" ref="565026852"/>
+									<int key="IBUIButtonType">1</int>
+									<string key="IBUINormalTitle">Log Out</string>
+									<reference key="IBUIHighlightedTitleColor" ref="346876724"/>
+									<object class="NSColor" key="IBUINormalTitleColor">
+										<int key="NSColorSpace">1</int>
+										<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+									</object>
+									<reference key="IBUINormalTitleShadowColor" ref="752731624"/>
+								</object>
+								<object class="IBUIView" id="362258925">
+									<reference key="NSNextResponder" ref="466692805"/>
+									<int key="NSvFlags">292</int>
+									<object class="NSMutableArray" key="NSSubviews">
+										<bool key="EncodedWithXMLCoder">YES</bool>
+										<object class="IBUIImageView" id="349007452">
+											<reference key="NSNextResponder" ref="362258925"/>
+											<int key="NSvFlags">274</int>
+											<string key="NSFrame">{{72, 20}, {136, 127}}</string>
+											<reference key="NSSuperview" ref="362258925"/>
+											<int key="IBUIContentMode">1</int>
+											<bool key="IBUIUserInteractionEnabled">NO</bool>
+											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+										</object>
+										<object class="IBUILabel" id="271457468">
+											<reference key="NSNextResponder" ref="362258925"/>
+											<int key="NSvFlags">292</int>
+											<string key="NSFrame">{{20, 155}, {240, 21}}</string>
+											<reference key="NSSuperview" ref="362258925"/>
+											<bool key="IBUIOpaque">NO</bool>
+											<bool key="IBUIClipsSubviews">YES</bool>
+											<int key="IBUIContentMode">7</int>
+											<bool key="IBUIUserInteractionEnabled">NO</bool>
+											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+											<string key="IBUIText">John Doe</string>
+											<reference key="IBUITextColor" ref="135700714"/>
+											<reference key="IBUIHighlightedColor" ref="346876724"/>
+											<int key="IBUIBaselineAdjustment">1</int>
+											<float key="IBUIMinimumFontSize">10</float>
+										</object>
+										<object class="IBUILabel" id="318005615">
+											<reference key="NSNextResponder" ref="362258925"/>
+											<int key="NSvFlags">292</int>
+											<string key="NSFrame">{{20, 184}, {240, 21}}</string>
+											<reference key="NSSuperview" ref="362258925"/>
+											<bool key="IBUIOpaque">NO</bool>
+											<bool key="IBUIClipsSubviews">YES</bool>
+											<int key="IBUIContentMode">7</int>
+											<bool key="IBUIUserInteractionEnabled">NO</bool>
+											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+											<string key="IBUIText">Senior Engineer</string>
+											<reference key="IBUITextColor" ref="135700714"/>
+											<reference key="IBUIHighlightedColor" ref="346876724"/>
+											<int key="IBUIBaselineAdjustment">1</int>
+											<float key="IBUIMinimumFontSize">10</float>
+										</object>
+									</object>
+									<string key="NSFrame">{{20, 94}, {280, 259}}</string>
+									<reference key="NSSuperview" ref="466692805"/>
+									<object class="NSColor" key="IBUIBackgroundColor">
+										<int key="NSColorSpace">1</int>
+										<bytes key="NSRGB">MC4yODU3NzkxNTggMC41NzUzMzUzNTEzIDAuODgwNDM0NzgyNgA</bytes>
+									</object>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 							</object>
 							<string key="NSFrameSize">{320, 416}</string>
@@ -220,45 +294,78 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">testLabel</string>
+						<string key="label">picView</string>
+						<reference key="source" ref="151470789"/>
+						<reference key="destination" ref="349007452"/>
+					</object>
+					<int key="connectionID">73</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">infoView</string>
+						<reference key="source" ref="151470789"/>
+						<reference key="destination" ref="362258925"/>
+					</object>
+					<int key="connectionID">74</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nameLbl</string>
+						<reference key="source" ref="151470789"/>
+						<reference key="destination" ref="271457468"/>
+					</object>
+					<int key="connectionID">75</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">titleLbl</string>
+						<reference key="source" ref="151470789"/>
+						<reference key="destination" ref="318005615"/>
+					</object>
+					<int key="connectionID">76</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">stateLbl</string>
 						<reference key="source" ref="151470789"/>
 						<reference key="destination" ref="646719840"/>
 					</object>
-					<int key="connectionID">60</int>
+					<int key="connectionID">77</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">socialButton</string>
+						<string key="label">exploreBtn</string>
 						<reference key="source" ref="151470789"/>
 						<reference key="destination" ref="744427819"/>
 					</object>
-					<int key="connectionID">61</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">configButton</string>
-						<reference key="source" ref="151470789"/>
-						<reference key="destination" ref="1007287024"/>
-					</object>
-					<int key="connectionID">62</int>
+					<int key="connectionID">78</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">exploreSocialClicked:</string>
+						<string key="label">login:</string>
+						<reference key="source" ref="134601894"/>
+						<reference key="destination" ref="151470789"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">79</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">logout:</string>
+						<reference key="source" ref="737756916"/>
+						<reference key="destination" ref="151470789"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">80</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">explore:</string>
 						<reference key="source" ref="744427819"/>
 						<reference key="destination" ref="151470789"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">64</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">configClicked:</string>
-						<reference key="source" ref="1007287024"/>
-						<reference key="destination" ref="151470789"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">65</int>
+					<int key="connectionID">81</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -329,8 +436,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="967419967"/>
 							<reference ref="646719840"/>
+							<reference ref="362258925"/>
 							<reference ref="744427819"/>
-							<reference ref="1007287024"/>
+							<reference ref="737756916"/>
+							<reference ref="134601894"/>
 						</object>
 						<reference key="parent" ref="151470789"/>
 					</object>
@@ -345,14 +454,45 @@
 						<reference key="parent" ref="466692805"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">59</int>
-						<reference key="object" ref="1007287024"/>
-						<reference key="parent" ref="466692805"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">66</int>
 						<reference key="object" ref="967419967"/>
 						<reference key="parent" ref="466692805"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">67</int>
+						<reference key="object" ref="134601894"/>
+						<reference key="parent" ref="466692805"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">68</int>
+						<reference key="object" ref="737756916"/>
+						<reference key="parent" ref="466692805"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">69</int>
+						<reference key="object" ref="362258925"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="349007452"/>
+							<reference ref="271457468"/>
+							<reference ref="318005615"/>
+						</object>
+						<reference key="parent" ref="466692805"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">70</int>
+						<reference key="object" ref="349007452"/>
+						<reference key="parent" ref="362258925"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">71</int>
+						<reference key="object" ref="271457468"/>
+						<reference key="parent" ref="362258925"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">72</int>
+						<reference key="object" ref="318005615"/>
+						<reference key="parent" ref="362258925"/>
 					</object>
 				</object>
 			</object>
@@ -377,10 +517,19 @@
 					<string>36.IBViewBoundsToFrameTransform</string>
 					<string>47.IBPluginDependency</string>
 					<string>47.IBViewBoundsToFrameTransform</string>
-					<string>59.IBPluginDependency</string>
-					<string>59.IBViewBoundsToFrameTransform</string>
 					<string>66.IBPluginDependency</string>
 					<string>66.IBViewBoundsToFrameTransform</string>
+					<string>67.IBPluginDependency</string>
+					<string>67.IBViewBoundsToFrameTransform</string>
+					<string>68.IBPluginDependency</string>
+					<string>68.IBViewBoundsToFrameTransform</string>
+					<string>69.IBPluginDependency</string>
+					<string>69.IBViewBoundsToFrameTransform</string>
+					<string>70.IBPluginDependency</string>
+					<string>70.IBViewBoundsToFrameTransform</string>
+					<string>71.IBPluginDependency</string>
+					<string>71.IBViewBoundsToFrameTransform</string>
+					<string>72.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -388,7 +537,7 @@
 					<string>UIResponder</string>
 					<string>{{525, 346}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{298, 158}, {320, 480}}</string>
+					<string>{{676, 373}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>DemoAppViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -399,20 +548,37 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABC6gAAwhwAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABDMQAAwhwAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABCogAAwtoAAA</bytes>
-					</object>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAw6yAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABCtgAAw8UAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAABCeAAAwvoAAA</bytes>
 					</object>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABDXwAAwhwAAA</bytes>
+					</object>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABCyAAAwqgAAA</bytes>
+					</object>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABCmgAAw6EAAA</bytes>
+					</object>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAwxEAAA</bytes>
+					</object>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABCFAAAw0gAAA</bytes>
+					</object>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -431,7 +597,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">66</int>
+			<int key="maxID">81</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -491,11 +657,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>configClicked:</string>
-							<string>exploreSocialClicked:</string>
+							<string>explore:</string>
+							<string>login:</string>
+							<string>logout:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -504,17 +672,22 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>configClicked:</string>
-							<string>exploreSocialClicked:</string>
+							<string>explore:</string>
+							<string>login:</string>
+							<string>logout:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
-								<string key="name">configClicked:</string>
+								<string key="name">explore:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">exploreSocialClicked:</string>
+								<string key="name">login:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">logout:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -523,14 +696,20 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>configButton</string>
-							<string>socialButton</string>
-							<string>testLabel</string>
+							<string>exploreBtn</string>
+							<string>infoView</string>
+							<string>nameLbl</string>
+							<string>picView</string>
+							<string>stateLbl</string>
+							<string>titleLbl</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIButton</string>
-							<string>UIButton</string>
+							<string>UIView</string>
+							<string>UILabel</string>
+							<string>UIImageView</string>
+							<string>UILabel</string>
 							<string>UILabel</string>
 						</object>
 					</object>
@@ -538,22 +717,37 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>configButton</string>
-							<string>socialButton</string>
-							<string>testLabel</string>
+							<string>exploreBtn</string>
+							<string>infoView</string>
+							<string>nameLbl</string>
+							<string>picView</string>
+							<string>stateLbl</string>
+							<string>titleLbl</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
-								<string key="name">configButton</string>
+								<string key="name">exploreBtn</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">socialButton</string>
-								<string key="candidateClassName">UIButton</string>
+								<string key="name">infoView</string>
+								<string key="candidateClassName">UIView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">testLabel</string>
+								<string key="name">nameLbl</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">picView</string>
+								<string key="candidateClassName">UIImageView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">stateLbl</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">titleLbl</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
 						</object>
@@ -561,244 +755,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/DemoAppViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/gtm-oauth2-read-only/HTTPFetcher/Tests/GTMHTTPServer.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/gtm-oauth2-read-only/JSON/NSObject+SBJSON.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Debug-iphoneos/include/RestKit/Support/JSON/SBJSON/NSObject+SBJSON.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Debug-iphoneos/include/RestKit/Support/JSON/SBJSON/SBJsonWriter.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Debug-iphoneos/include/RestKit/Support/JSON/YAJL/NSObject+YAJL.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Debug-iphoneos/include/RestKit/Support/NSObject+RKJSONSerialization.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Debug-iphonesimulator/include/RestKit/Support/JSON/SBJSON/NSObject+SBJSON.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Debug-iphonesimulator/include/RestKit/Support/JSON/SBJSON/SBJsonWriter.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Debug-iphonesimulator/include/RestKit/Support/JSON/YAJL/NSObject+YAJL.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Debug-iphonesimulator/include/RestKit/Support/NSObject+RKJSONSerialization.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Distribution-iphoneos/include/RestKit/Support/JSON/SBJSON/NSObject+SBJSON.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Distribution-iphoneos/include/RestKit/Support/JSON/SBJSON/SBJsonWriter.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Distribution-iphoneos/include/RestKit/Support/JSON/YAJL/NSObject+YAJL.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Distribution-iphoneos/include/RestKit/Support/NSObject+RKJSONSerialization.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Distribution-iphonesimulator/include/RestKit/Support/JSON/SBJSON/NSObject+SBJSON.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Distribution-iphonesimulator/include/RestKit/Support/JSON/SBJSON/SBJsonWriter.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Distribution-iphonesimulator/include/RestKit/Support/JSON/YAJL/NSObject+YAJL.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Distribution-iphonesimulator/include/RestKit/Support/NSObject+RKJSONSerialization.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Release-iphoneos/include/RestKit/Support/JSON/SBJSON/NSObject+SBJSON.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Release-iphoneos/include/RestKit/Support/JSON/SBJSON/SBJsonWriter.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Release-iphoneos/include/RestKit/Support/JSON/YAJL/NSObject+YAJL.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Release-iphoneos/include/RestKit/Support/NSObject+RKJSONSerialization.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Release-iphonesimulator/include/RestKit/Support/JSON/SBJSON/NSObject+SBJSON.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Release-iphonesimulator/include/RestKit/Support/JSON/SBJSON/SBJsonWriter.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Release-iphonesimulator/include/RestKit/Support/JSON/YAJL/NSObject+YAJL.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/Release-iphonesimulator/include/RestKit/Support/NSObject+RKJSONSerialization.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/RestKit/Support/JSON/SBJSON/NSObject+SBJSON.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/RestKit/Support/JSON/SBJSON/SBJsonWriter.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/RestKit/Support/JSON/YAJL/NSObject+YAJL.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Build/RestKit/Support/NSObject+RKJSONSerialization.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Code/Support/NSObject+RKJSONSerialization.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Vendor/SBJSON/NSObject+SBJSON.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Vendor/SBJSON/SBJsonWriter.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">libs/twotoasters-RestKit-d665f79/Vendor/YAJL/NSObject+YAJL.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -941,6 +897,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">UIKit.framework/Headers/UIControl.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UIImageView</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UIImageView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

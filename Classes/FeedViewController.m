@@ -19,9 +19,11 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "FeedViewController.h"
-#import "FeedPage.h"
 #import "WebViewController.h"
 #import "UserViewController.h"
+
+#import "FeedItem.h"
+#import "MessageSegment.h"
 
 @implementation FeedViewController
 
@@ -59,7 +61,7 @@
 - (void)fetchCompleted {
 }
 
-- (FeedPage*)page {
+- (FeedItemPage*)page {
 	return nil;
 }
 
@@ -127,7 +129,7 @@
 // UITableViewDataSource implementation
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return [[[self page] feedItems] count];
+	return [[self.page items] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -137,7 +139,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
     }
 	
-	FeedItem* feedItem = [[[self page] feedItems] objectAtIndex:indexPath.row];	
+	FeedItem* feedItem = [[self.page items] objectAtIndex:indexPath.row];	
 	
 	// Add feed item text.
 	UIView* content = [cell contentView];
@@ -145,16 +147,16 @@
 	
 	// TODO: Put mention adding into shared function.
 	UIFont* authorFont = [UIFont boldSystemFontOfSize:12];
-	CGSize stringsize = [[[feedItem user] name] sizeWithFont:authorFont];
+	CGSize stringsize = [[[feedItem author] name] sizeWithFont:authorFont];
 	UIButton* authorBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[authorBtn setTitle:[[feedItem user] name] forState:UIControlStateNormal];
+	[authorBtn setTitle:[[feedItem author] name] forState:UIControlStateNormal];
 	authorBtn.frame = CGRectMake(xOffset, 0, stringsize.width + 5, 22);
 	[authorBtn titleLabel].font = authorFont;
 	
 	int actionIndex = [segmentActions count];
 	authorBtn.tag = actionIndex;
 	
-	[segmentActions setObject:[NSString stringWithFormat:@"mention:%@", [[feedItem user] userId]] forKey:[NSNumber numberWithInt:actionIndex]];
+	[segmentActions setObject:[NSString stringWithFormat:@"mention:%@", [[feedItem author] userId]] forKey:[NSNumber numberWithInt:actionIndex]];
 	[authorBtn addTarget:self action:@selector(onSegmentClick:) forControlEvents:UIControlEventTouchDown];
 	
 	[content addSubview:authorBtn];

@@ -20,10 +20,9 @@
 
 #import "FeedItem.h"
 
-
 @implementation FeedItem
 
-@synthesize itemId;
+@synthesize feedItemId;
 @synthesize parentId;
 @synthesize parentName;
 @synthesize createdDate;
@@ -31,31 +30,25 @@
 @synthesize type;
 @synthesize url;
 @synthesize body;
-@synthesize user;
+@synthesize author;
 
-+ (NSDictionary*)elementToPropertyMappings {  
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:@"itemId" forKey:@"id"];
-	[dict setObject:@"parentId" forKey:@"parentId"];
-	[dict setObject:@"parentName" forKey:@"parentName"];
-	[dict setObject:@"createdDate" forKey:@"createdDate"];
-	[dict setObject:@"modifiedDate" forKey:@"modifiedDate"];
-	[dict setObject:@"type" forKey:@"type"];
-	[dict setObject:@"url" forKey:@"url"];
-	[dict setObject:@"isEvent" forKey:@"event"];
-	[dict setObject:@"isLikedByCurrentUser" forKey:@"isLikedByCurrentUser"];
-	return [dict autorelease];  
-} 
-
-+ (NSDictionary*)elementToRelationshipMappings {  
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:@"body" forKey:@"body"];
-	[dict setObject:@"user" forKey:@"user"];
-	return [dict autorelease];  
-} 
-
++(void)setupMapping:(RKObjectManager*)manager {
+	RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[FeedItem class]];
+	[mapping mapAttributes:@"createdDate", @"modifiedDate", @"type", @"url", @"parentId", @"parentName", @"isEvent", @"isLikedByCurrentUser", nil];
+	[mapping addAttributeMapping:[RKObjectAttributeMapping mappingFromKeyPath:@"id" toKeyPath:@"feedItemId"]];
+	
+	// Assuming that User and FeedBody already registered mappings.
+	RKObjectMapping* userMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[User class]];
+	RKObjectMapping* bodyMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[FeedBody class]];
+	
+	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"user" toKeyPath:@"author" objectMapping:userMapping]];
+	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"body" toKeyPath:@"body" objectMapping:bodyMapping]];
+	
+	[manager.router routeClass:[FeedItem class] toResourcePath:@"/services/data/v22.0/chatter/feed-items/(feedItemId)" forMethod:RKRequestMethodGET];
+	[manager.mappingProvider addObjectMapping:mapping];
+}
 - (void)dealloc {
-	[itemId release];
+	[feedItemId release];
 	[parentId release];
 	[parentName release];
 	[createdDate release];
@@ -63,7 +56,7 @@
 	[type release];
 	[url release];
 	[body release];
-	[user release];
+	[author release];
 	
 	[super dealloc];
 }

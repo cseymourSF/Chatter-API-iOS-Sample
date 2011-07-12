@@ -18,34 +18,37 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "RKObject.h"
+#import "User.h"
 #import "FeedBody.h"
-#import "UserSummary.h"
 
-@interface FeedItem : RKObject {
-	NSString* itemId;
-	NSString* parentId;
-	NSString* parentName;
+@interface FeedItem : NSObject {
+	NSString* feedItemId;
 	NSString* createdDate;
 	NSString* modifiedDate;
+	NSString* parentId;
+	NSString* parentName;
 	NSString* type;
 	NSString* url;
 	
 	bool isEvent;
 	bool isLikedByCurrentUser;
+
 	FeedBody* body;
-	UserSummary* user;
+	UserSummary* author;
 }
 
-@property(nonatomic, retain) NSString* itemId;
-@property(nonatomic, retain) NSString* parentId;
-@property(nonatomic, retain) NSString* parentName;
++(void)setupMapping:(RKObjectManager*)manager;
+
+@property(nonatomic, retain) NSString* feedItemId;
 @property(nonatomic, retain) NSString* createdDate;
 @property(nonatomic, retain) NSString* modifiedDate;
+@property(nonatomic, retain) NSString* parentId;
+@property(nonatomic, retain) NSString* parentName;
 @property(nonatomic, retain) NSString* type;
 @property(nonatomic, retain) NSString* url;
 
 @property(nonatomic, retain) FeedBody* body;
-@property(nonatomic, retain) UserSummary* user;
+@property(nonatomic, retain) UserSummary* author;
 
 @end
+

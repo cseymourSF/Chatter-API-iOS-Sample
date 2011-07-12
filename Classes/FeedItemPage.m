@@ -1,5 +1,5 @@
 //
-//  FeedPage.h
+//  FeedPage.m
 //  DemoApp
 //
 //  Copyright 2011 Salesforce.com. All rights reserved.
@@ -18,17 +18,33 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "RKObject.h"
+#import "FeedItemPage.h"
 #import "FeedItem.h"
 
-@interface FeedPage : RKObject {
-	NSString* currentPageUrl;
-	NSString* nextPageUrl;
-	NSArray* feedItems;
+@implementation FeedItemPage
+
+@synthesize currentPageUrl;
+@synthesize nextPageUrl;
+@synthesize items;
+
++(void)setupMapping:(RKObjectManager*)manager subclass:(Class)clazz urlFormat:(NSString*)urlFormat {
+	RKObjectMapping* mapping = [RKObjectMapping mappingForClass:clazz];
+	[mapping mapAttributes:@"currentPageUrl", @"nextPageUrl", nil];
+
+	// Assuming that the FeedItem mapping is registered.
+	RKObjectMapping* feedItemMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[FeedItem class]];
+	[mapping hasMany:@"items" withObjectMapping:feedItemMapping];
+	
+	[manager.router routeClass:clazz toResourcePath:urlFormat forMethod:RKRequestMethodGET];
+	[manager.mappingProvider addObjectMapping:mapping];
 }
 
-@property(nonatomic, retain) NSString* currentPageUrl;
-@property(nonatomic, retain) NSString* nextPageUrl;
-@property(nonatomic, retain) NSArray* feedItems;
+- (void)dealloc {
+	[currentPageUrl release];
+	[nextPageUrl release];
+	[items release];
+	
+	[super dealloc];
+}
 
 @end

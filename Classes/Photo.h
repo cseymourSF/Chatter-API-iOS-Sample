@@ -18,14 +18,14 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "RKObject.h"
-
-@interface Photo : RKObject {
+@interface Photo : NSObject {
 	NSString* smallPhotoUrl;
 	NSString* largePhotoUrl;
 }
 
 @property(nonatomic, retain) NSString* smallPhotoUrl;
 @property(nonatomic, retain) NSString* largePhotoUrl;
+
++(void)setupMapping:(RKObjectManager*)manager;
 
 @end

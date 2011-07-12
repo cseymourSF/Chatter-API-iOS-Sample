@@ -19,10 +19,9 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "UserViewController.h"
-#import "FeedBody.h"
 #import "UserFeedViewController.h"
-#import "DemoAppAppDelegate.h"
-#import "Authenticator.h"
+#import "AuthContext.h"
+#import "FeedBody.h"
 
 @implementation UserViewController
 
@@ -44,7 +43,7 @@
 	self = [super initWithNibName:@"UserPhone" bundle:nil];
 	
 	if (self != nil) {
-		self.user = [User object];
+		self.user = [[User alloc] init];
 		self.user.userId = inUserId;
 	}
 	
@@ -112,15 +111,15 @@
 			[aboutLbl setText:[self.user about]];
 		
 			Address* address = [self.user address];
-			NSString* addrStr = [address city];
-			addrStr = [self appendAddr:addrStr part:[address state]];
-			addrStr = [self appendAddr:addrStr part:[address country]];
+			NSString* addrStr = address.city;
+			addrStr = [self appendAddr:addrStr part:address.state];
+			addrStr = [self appendAddr:addrStr part:address.country];
 			[locationLbl setText:addrStr];
 			
 			// Asynchronously retrieve the user photo.
-			NSString* photoUrlStr = [[self.user photo] largePhotoUrl];
+			NSString* photoUrlStr = self.user.photo.largePhotoUrl;
 			if (![photoUrlStr hasPrefix:@"https"]) { // Some orgs give relative urls, others absolute.
-				photoUrlStr = [NSString stringWithFormat:@"%@%@", [Authenticator baseUrl], photoUrlStr];
+				photoUrlStr = [NSString stringWithFormat:@"%@%@", [AuthContext context].instanceUrl, photoUrlStr];
 			}
 			
 			// Fetch the photo.

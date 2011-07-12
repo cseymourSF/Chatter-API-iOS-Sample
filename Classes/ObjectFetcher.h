@@ -18,10 +18,6 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
-
-#import "RKObject.h"
-#import "RKObjectLoader.h"
 
 @protocol ObjectFetcherDelegate<NSObject>
 - (void)retrievalCompleted:(NSString*)tag withSuccess:(bool)succeeded; 
@@ -29,16 +25,16 @@
 
 @interface ObjectFetcher : NSObject<RKObjectLoaderDelegate> {
 	NSString* tag;
-	RKObject* obj;
-	NSObject<ObjectFetcherDelegate>* myDelegate;
+	id obj;
+	NSObject<ObjectFetcherDelegate>* delegate;
 }
 
 @property(nonatomic, retain) NSString* tag;
-@property(nonatomic, retain) RKObject* obj;
-@property(nonatomic, assign) NSObject<ObjectFetcherDelegate>* myDelegate;
+@property(nonatomic, retain) id obj;
+@property(nonatomic, assign) NSObject<ObjectFetcherDelegate>* delegate;
 
 // We assume the delegate will outlive this object, it is not retained.
-- initWithTag:(NSString*)inTag object:(RKObject*)inObj delegate:(NSObject<ObjectFetcherDelegate>*)inDelegate;
+- initWithTag:(NSString*)inTag object:(id)inObj delegate:(NSObject<ObjectFetcherDelegate>*)inDelegate;
 
 - (void)fetch;
 

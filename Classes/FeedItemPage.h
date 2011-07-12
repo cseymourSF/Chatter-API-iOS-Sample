@@ -1,5 +1,5 @@
 //
-//  ConfigController.h
+//  FeedPage.h
 //  DemoApp
 //
 //  Copyright 2011 Salesforce.com. All rights reserved.
@@ -18,24 +18,16 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
-
-@interface ConfigController : UIViewController {
-	UITextField* secretField;
-	UITextField* clientIdField;
-	UITextField* baseUrlField;
-	UITextField* callbackUriField;
-	CGFloat animatedDistance;
+@interface FeedItemPage : NSObject {
+	NSString* currentPageUrl;
+	NSString* nextPageUrl;
+	NSArray* items; // Holds FeedItems
 }
 
-@property (nonatomic, retain) IBOutlet UITextField* secretField;
-@property (nonatomic, retain) IBOutlet UITextField* clientIdField;
-@property (nonatomic, retain) IBOutlet UITextField* baseUrlField;
-@property (nonatomic, retain) IBOutlet UITextField* callbackUriField;
+@property(nonatomic, retain) NSString* currentPageUrl;
+@property(nonatomic, retain) NSString* nextPageUrl;
+@property(nonatomic, retain) NSArray* items;
 
-+ (ConfigController*)create;
-
-- init;
-- (void)recenter;
++(void)setupMapping:(RKObjectManager*)manager subclass:(Class)clazz urlFormat:(NSString*)urlFormat;
 
 @end

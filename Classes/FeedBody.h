@@ -18,15 +18,14 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "RKObject.h"
-#import "MessageSegment.h"
-
-@interface FeedBody : RKObject {
+@interface FeedBody : NSObject {
 	NSString* text;
-	NSArray* messageSegments;
+	NSArray* messageSegments; // Holds MessageSegment*s
 }
 
 @property(nonatomic, retain) NSString* text;
 @property(nonatomic, retain) NSArray* messageSegments;
+
++(void)setupMapping:(RKObjectManager*)manager;
 
 @end

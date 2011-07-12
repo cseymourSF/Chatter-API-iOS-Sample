@@ -18,10 +18,8 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
-
 #import "ObjectFetcher.h"
-#import "FeedPage.h"
+#import "FeedItemPage.h"
 
 @interface FeedViewController : UITableViewController<ObjectFetcherDelegate>  {
 	ObjectFetcher* feedFetcher;
@@ -37,6 +35,6 @@
 // To be implemented in subclasses.
 - (void)fetchCompleted;
 - (NSString*)name;
-- (FeedPage*)page;
+- (FeedItemPage*)page;
 
 @end

@@ -19,7 +19,6 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "User.h"
-#import "RKObjectManager.h"
 
 @implementation User
 
@@ -30,20 +29,18 @@
 @synthesize url;
 @synthesize address;
 
-+ (NSDictionary*)elementToPropertyMappings {  
-	NSMutableDictionary *dict = [UserSummary elementToPropertyMappingsMutable];
-	[dict setObject:@"about" forKey:@"aboutMe"];
-	[dict setObject:@"email" forKey:@"email"];
-	[dict setObject:@"managerId" forKey:@"managerId"];
-	[dict setObject:@"managerName" forKey:@"managerName"];
-	[dict setObject:@"url" forKey:@"url"];
-	return dict;  
-}  
-
-+ (NSDictionary*)elementToRelationshipMappings {
-	NSMutableDictionary *dict = [UserSummary elementToRelationshipMappingsMutable];
-	[dict setObject:@"address" forKey:@"address"];
-	return dict;
++(void)setupMapping:(RKObjectManager*)manager {
+	RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[User class]];
+	[UserSummary populateMapping:mapping];
+	[mapping mapAttributes:@"email", @"managerId", @"managerName", @"url", nil ];
+	[mapping addAttributeMapping:[RKObjectAttributeMapping mappingFromKeyPath:@"aboutMe" toKeyPath:@"about"]];
+	
+	// Assuming that the Address mapping is registered.
+	RKObjectMapping* addressMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[Address class]];
+	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"address" toKeyPath:@"address" objectMapping:addressMapping]];
+	
+	[manager.router routeClass:[User class] toResourcePath:@"/services/data/v22.0/chatter/users/(userId)" forMethod:RKRequestMethodGET];	
+	[manager.mappingProvider addObjectMapping:mapping];
 }
 
 - (void)dealloc {

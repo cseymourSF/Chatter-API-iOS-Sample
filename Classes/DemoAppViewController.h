@@ -18,25 +18,31 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <UIKit/UIKit.h>
-#import "GTMOAuth2Authentication.h"
+#import "OAuthViewController.h"
+#import "User.h"
+#import "PhotoFetcher.h"
 
-@interface DemoAppViewController : UIViewController<UINavigationControllerDelegate> {
-	UILabel* testLabel;
-	UIButton* socialButton;
-	UIButton* configButton;
-	BOOL showSocial;
-	BOOL viewJustAppeared;
+@interface DemoAppViewController : UIViewController<RKObjectLoaderDelegate, PhotoFetcherDelegate> {
+	UIButton* exploreBtn;
+	UILabel* stateLbl;
+	UILabel* nameLbl;
+	UILabel* titleLbl;
+	UIImageView* picView;
+	UIView* infoView;
+	
+	User* user;
+	PhotoFetcher* photoFetcher;
 }
 
-@property (nonatomic, retain) IBOutlet UILabel* testLabel;
-@property (nonatomic, retain) IBOutlet UIButton* socialButton;
-@property (nonatomic, retain) IBOutlet UIButton* configButton;
+@property (nonatomic, retain) IBOutlet UIButton* exploreBtn;
+@property (nonatomic, retain) IBOutlet UILabel* stateLbl;
+@property (nonatomic, retain) IBOutlet UILabel* nameLbl;
+@property (nonatomic, retain) IBOutlet UILabel* titleLbl;
+@property (nonatomic, retain) IBOutlet UIImageView* picView;
+@property (nonatomic, retain) IBOutlet UIView* infoView;
 
-- (IBAction)configClicked:(id)sender;
-- (IBAction)exploreSocialClicked:(id)sender;
-
-- (void)initRestkit;
+- (IBAction)login:(id)sender;
+- (IBAction)logout:(id)sender;
+- (IBAction)explore:(id)sender;
 
 @end
-

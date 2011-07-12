@@ -19,24 +19,24 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "FeedBody.h"
-
+#import "MessageSegment.h"
 
 @implementation FeedBody
 
 @synthesize text;
 @synthesize messageSegments;
 
-+ (NSDictionary*)elementToPropertyMappings {  
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:@"text" forKey:@"text"];
-	return [dict autorelease];  
-} 
++(void)setupMapping:(RKObjectManager*)manager {
+	RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[FeedBody class]];
 
-+ (NSDictionary*)elementToRelationshipMappings {  
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setObject:@"messageSegments" forKey:@"messageSegments"];
-	return [dict autorelease];  
-}  
+	[mapping mapAttributes:@"text", nil];
+	
+	// Assuming that MessageSegment already registered mappings.
+	RKObjectMapping* segMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[MessageSegment class]];
+	[mapping hasMany:@"messageSegments" withObjectMapping:segMapping];
+	
+	[manager.mappingProvider addObjectMapping:mapping];
+}
 
 - (void)dealloc {
 	[text release];

@@ -37,4 +37,6 @@
 @property(nonatomic, retain) NSString* url;
 @property(nonatomic, retain) Address* address;
 
++(void)setupMapping:(RKObjectManager*)manager;
+
 @end

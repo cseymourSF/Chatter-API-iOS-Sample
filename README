@@ -1,1 +1,9 @@
-This is a sample app showing you how to use the Chatter REST API in conjunction with GTMOAuth and RestKit to make a simple feed explorer.
+This is a sample app showing you how to use the Chatter REST API in conjunction with RestKit to make a simple feed explorer.
+
+There is another sample app at https://github.com/cseymourSF/PhotoPoster/ showing how to post a new photo post to a group.
+
+You MUST set the "PPConsumerKey" value in the info plist to the correct Consumer Key for your application! This value comes from the Remote Access App setup on Salesforce.
+
+The code in Classes/RestKit is the RestKit submodule: https://github.com/twotoasters/RestKit
+
+To learn how to use submodules please refer to: http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/

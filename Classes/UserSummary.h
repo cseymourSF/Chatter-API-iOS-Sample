@@ -18,10 +18,9 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "RKObject.h"
 #import "Photo.h"
 
-@interface UserSummary : RKObject {
+@interface UserSummary : NSObject {
 	NSString* userId;
 	NSString* firstName;
 	NSString* lastName;
@@ -37,7 +36,7 @@
 @property(nonatomic, retain) NSString* title;
 @property(nonatomic, retain) Photo* photo;
 
-+ (NSMutableDictionary*)elementToPropertyMappingsMutable;
-+ (NSMutableDictionary*)elementToRelationshipMappingsMutable;
++(void)setupMapping:(RKObjectManager*)manager;
++(void)populateMapping:(RKObjectMapping*)mapping;
 
 @end
