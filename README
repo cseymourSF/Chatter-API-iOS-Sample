@@ -1,6 +1,6 @@
 This is a sample app showing you how to use the Chatter REST API in conjunction with RestKit to make a simple feed explorer.
 
-There is another sample app at https://github.com/cseymourSF/PhotoPoster/ showing how to post a new photo post to a group.
+There is another sample app at https://github.com/cseymourSF/Chatter-API-iOS-PhotoPoster showing how to post a new photo post to a group.
 
 You MUST set the "PPConsumerKey" value in the info plist to the correct Consumer Key for your application! This value comes from the Remote Access App setup on Salesforce.
 
