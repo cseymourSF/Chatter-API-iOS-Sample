@@ -11,6 +11,6 @@
 
 }
 
-+(void)initWithBaseURL:(NSString*)baseURL;
++(void)initialize;
 
 @end

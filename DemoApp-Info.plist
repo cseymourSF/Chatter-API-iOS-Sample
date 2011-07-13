@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>PPCallbackUrl</key>
+	<string>https://login.salesforce.com/services/oauth2/success</string>
+	<key>PPLoginUrl</key>
+	<string>https://login.salesforce.com/services/oauth2/authorize</string>
+	<key>PPTokenUrlServer</key>
+	<string>https://login.salesforce.com</string>
+	<key>PPTokenUrlPath</key>
+	<string>/services/oauth2/token</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>

@@ -73,8 +73,8 @@
 }
 
 - (void)initRestKitAndUser {
-	// Initialize RestKit mappings.
-	[MappingManager initWithBaseURL:[AuthContext context].instanceUrl];
+	// Re-initialize RestKit with the current instance URL.
+	[MappingManager initialize];
 	
 	// Request population of the User by RestKit.
 	[user release];
@@ -88,18 +88,8 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {	
-	if ([[AuthContext context] accessToken] == nil) {
-		// Retrieve the "PPConsumerKey" value from the info plist.	
-		NSString* consumerKey = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"PPConsumerKey"];
-		if ((consumerKey == nil) || ([consumerKey length] <= 0)) {
-			NSLog(@"!!!!!!!YOU MUST SET THE PPConsumerKey VALUE IN THE INFO PLIST FOR THIS APP TO RUN!!!!!!!!!");
-			[[NSThread mainThread] exit];
-		}
-		
-		NSLog(@"Consumer key: %@", consumerKey);
-		
-		BOOL isGetting = [[AuthContext context] startGettingAccessTokenWithConsumerKey:consumerKey 
-																			  delegate:self];
+	if ([[AuthContext context] accessToken] == nil) {		
+		BOOL isGetting = [[AuthContext context] startGettingAccessTokenWithDelegate:self];
 		if (isGetting) {
 			[stateLbl setText:@"Fetching access token..."];
 		}
@@ -119,20 +109,8 @@
 	}
 }
 
-- (IBAction)login:(id)sender {
-	// Retrieve the "PPConsumerKey" value from the info plist.	
-	NSString* consumerKey = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"PPConsumerKey"];
-	if ((consumerKey == nil) || ([consumerKey length] <= 0)) {
-		NSLog(@"!!!!!!!YOU MUST SET THE PPConsumerKey VALUE IN THE INFO PLIST FOR THIS APP TO RUN!!!!!!!!!");
-		[[NSThread mainThread] exit];
-	}
-	
-	OAuthViewController* oauthViewController = 
-	[[[OAuthViewController alloc] 
-	  initWithLoginUrl:@"https://login.salesforce.com/services/oauth2/authorize"
-	  callbackUrl:@"https://login.salesforce.com/services/oauth2/success"
-	  consumerKey:consumerKey] autorelease];
-	
+- (IBAction)login:(id)sender {	
+	OAuthViewController* oauthViewController = [[[OAuthViewController alloc] init] autorelease]; 
 	[[self navigationController] pushViewController:oauthViewController animated:YES];
 }
 
@@ -167,7 +145,7 @@
 
 // PhotoFetcherDelegate implementation.
 
-- (void)retrievalCompleted:(NSString*)tag image:(UIImage*)image {
+- (void)photoRetrievalCompleted:(NSString*)tag image:(UIImage*)image {
 	[picView setImage:image];
 }
 

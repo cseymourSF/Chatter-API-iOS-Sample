@@ -50,6 +50,5 @@
 
 - initWithUserId:(NSString*)inUserId;
 - (IBAction)feedClick:(id)sender;
-- (void)retrievalCompleted:(NSString*)tag image:(UIImage*)image;
 
 @end

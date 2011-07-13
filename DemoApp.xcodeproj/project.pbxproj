@@ -27,6 +27,7 @@
 		A3992C8E1384E89B00FDDBB4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3992C8D1384E89B00FDDBB4 /* CFNetwork.framework */; };
 		A3992C901384E89B00FDDBB4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3992C8F1384E89B00FDDBB4 /* MobileCoreServices.framework */; };
 		A39CBE0513848615006F68E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39CBE0413848615006F68E4 /* SystemConfiguration.framework */; };
+		A3A80AE213CE236800185C41 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A80AE113CE236800185C41 /* Config.m */; };
 		A3B0F7E513CA230200CD4E99 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B0F7E313CA230200CD4E99 /* OAuthViewController.m */; };
 		A3B0F7E613CA230200CD4E99 /* OAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B0F7E413CA230200CD4E99 /* OAuthViewController.xib */; };
 		A3B0F7EE13CA234500CD4E99 /* AuthContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B0F7ED13CA234500CD4E99 /* AuthContext.m */; };
@@ -164,6 +165,8 @@
 		A3992C8F1384E89B00FDDBB4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A39CBE0213848615006F68E4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A39CBE0413848615006F68E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A3A80AE013CE236800185C41 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		A3A80AE113CE236800185C41 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		A3B0F7E213CA230200CD4E99 /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
 		A3B0F7E313CA230200CD4E99 /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		A3B0F7E413CA230200CD4E99 /* OAuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OAuthViewController.xib; path = Classes/OAuthViewController.xib; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				A348939D138E06E3007335CB /* ObjectFetcher.h */,
 				A3B0F7EC13CA234500CD4E99 /* AuthContext.h */,
 				A3B0F7ED13CA234500CD4E99 /* AuthContext.m */,
+				A3A80AE013CE236800185C41 /* Config.h */,
+				A3A80AE113CE236800185C41 /* Config.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 				A3B0F7EE13CA234500CD4E99 /* AuthContext.m in Sources */,
 				A3B0F94013CA373D00CD4E99 /* MappingManager.m in Sources */,
 				A3C82B1113CC193000DA5E5E /* Identity.m in Sources */,
+				A3A80AE213CE236800185C41 /* Config.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
