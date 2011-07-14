@@ -21,20 +21,24 @@
 #import "ObjectFetcher.h"
 #import "FeedItemPage.h"
 
-@interface FeedViewController : UITableViewController<ObjectFetcherDelegate>  {
+@interface FeedViewController : UIViewController<UITableViewDataSource, ObjectFetcherDelegate>  {
 	ObjectFetcher* feedFetcher;
 	NSMutableDictionary* segmentActions;
+	UITableView* feedTable;
 }
 
 @property(nonatomic, retain) ObjectFetcher* feedFetcher;
 
 - init;
 
+- (IBAction)postLocationClick:(id)sender;
 - (IBAction)onSegmentClick:(id)sender;
 
 // To be implemented in subclasses.
 - (void)fetchCompleted;
 - (NSString*)name;
 - (FeedItemPage*)page;
+
+@property(nonatomic, retain) IBOutlet UITableView* feedTable;
 
 @end

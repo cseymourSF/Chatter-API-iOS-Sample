@@ -40,5 +40,6 @@
 - initWithTag:(NSString*)inTag photoUrl:(NSString*)photoUrl delegate:(NSObject<PhotoFetcherDelegate>*)inDelegate;
 
 - (void)fetch;
+- (void)fetchWithOAuth:(Boolean)useOAuth;
 
 @end

@@ -21,6 +21,7 @@
 #import "FeedViewController.h"
 #import "WebViewController.h"
 #import "UserViewController.h"
+#import "PostLocationViewController.h"
 
 #import "FeedItem.h"
 #import "MessageSegment.h"
@@ -28,9 +29,10 @@
 @implementation FeedViewController
 
 @synthesize feedFetcher;
+@synthesize feedTable;
 
 - init {
-	self = [super init]; // WithNibName:@"FeedPhone" bundle:nil];
+	self = [super initWithNibName:@"FeedPhone" bundle:nil];
 	
 	if (self != nil) {
 		segmentActions = [[NSMutableDictionary alloc] init];
@@ -49,9 +51,9 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	self.title = [NSString stringWithFormat:@"%@ Feed", [self name]];
+	self.title = self.name;
 
-	self.feedFetcher = [[ObjectFetcher alloc] initWithTag:@"feed" object:[self page] delegate:self];
+	self.feedFetcher = [[ObjectFetcher alloc] initWithTag:@"feed" object:self.page delegate:self];
 	[self.feedFetcher fetch];
 }
 
@@ -67,6 +69,11 @@
 
 - (NSString*)name {
 	return nil;
+}
+
+- (IBAction)postLocationClick:(id)sender {
+	// HACK: Using nextPageUrl for now because currentPageUrl seems to be unpopulated...
+	[self.navigationController pushViewController:[[[PostLocationViewController alloc] initWithUrl:[self page].nextPageUrl] autorelease] animated:YES];
 }
 
 - (IBAction)onSegmentClick:(id)sender {
@@ -118,7 +125,7 @@
 			[self fetchCompleted];
 	
 			// Reload the table view UI, now that we have feed data to populate it.
-			[[self tableView] reloadData];
+			[self.feedTable reloadData];
 		} else {
 			NSLog(@"Retrieval of feed failed");
 		}

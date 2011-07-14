@@ -28,6 +28,11 @@
 		A3992C901384E89B00FDDBB4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3992C8F1384E89B00FDDBB4 /* MobileCoreServices.framework */; };
 		A39CBE0513848615006F68E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39CBE0413848615006F68E4 /* SystemConfiguration.framework */; };
 		A3A80AE213CE236800185C41 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A80AE113CE236800185C41 /* Config.m */; };
+		A3A80B2A13CE26B500185C41 /* FeedPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A80B2913CE26B500185C41 /* FeedPhone.xib */; };
+		A3A80B4413CE296200185C41 /* PostLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A80B4213CE296200185C41 /* PostLocationViewController.m */; };
+		A3A80B4513CE296200185C41 /* PostLocationPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A80B4313CE296200185C41 /* PostLocationPhone.xib */; };
+		A3A80B4813CE5B9C00185C41 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A80B4713CE5B9C00185C41 /* CoreLocation.framework */; };
+		A3A80BE513CE703400185C41 /* FeedItemPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A80BE413CE703400185C41 /* FeedItemPoster.m */; };
 		A3B0F7E513CA230200CD4E99 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B0F7E313CA230200CD4E99 /* OAuthViewController.m */; };
 		A3B0F7E613CA230200CD4E99 /* OAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B0F7E413CA230200CD4E99 /* OAuthViewController.xib */; };
 		A3B0F7EE13CA234500CD4E99 /* AuthContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B0F7ED13CA234500CD4E99 /* AuthContext.m */; };
@@ -167,6 +172,13 @@
 		A39CBE0413848615006F68E4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A3A80AE013CE236800185C41 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		A3A80AE113CE236800185C41 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		A3A80B2913CE26B500185C41 /* FeedPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedPhone.xib; sourceTree = "<group>"; };
+		A3A80B4113CE296200185C41 /* PostLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostLocationViewController.h; path = ../PostLocationViewController.h; sourceTree = "<group>"; };
+		A3A80B4213CE296200185C41 /* PostLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostLocationViewController.m; path = ../PostLocationViewController.m; sourceTree = "<group>"; };
+		A3A80B4313CE296200185C41 /* PostLocationPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostLocationPhone.xib; sourceTree = "<group>"; };
+		A3A80B4713CE5B9C00185C41 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A3A80BE313CE703400185C41 /* FeedItemPoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItemPoster.h; sourceTree = "<group>"; };
+		A3A80BE413CE703400185C41 /* FeedItemPoster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItemPoster.m; sourceTree = "<group>"; };
 		A3B0F7E213CA230200CD4E99 /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
 		A3B0F7E313CA230200CD4E99 /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		A3B0F7E413CA230200CD4E99 /* OAuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OAuthViewController.xib; path = Classes/OAuthViewController.xib; sourceTree = "<group>"; };
@@ -212,6 +224,7 @@
 				A39CBE0513848615006F68E4 /* SystemConfiguration.framework in Frameworks */,
 				A3992C8E1384E89B00FDDBB4 /* CFNetwork.framework in Frameworks */,
 				A3992C901384E89B00FDDBB4 /* MobileCoreServices.framework in Frameworks */,
+				A3A80B4813CE5B9C00185C41 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,11 +265,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A3B0F7E413CA230200CD4E99 /* OAuthViewController.xib */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
-				8D1107310486CEB800E47090 /* DemoApp-Info.plist */,
-				A34893B0138E0E08007335CB /* UserPhone.xib */,
-				A3E5334313943F10004CCE49 /* WebView.xib */,
+				A3A80B3B13CE28F200185C41 /* iPad */,
+				A3A80B3A13CE28ED00185C41 /* iPhone */,
+				A3A80B3913CE28E900185C41 /* Shared */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -271,6 +282,7 @@
 				A39CBE0413848615006F68E4 /* SystemConfiguration.framework */,
 				A3992C8D1384E89B00FDDBB4 /* CFNetwork.framework */,
 				A3992C8F1384E89B00FDDBB4 /* MobileCoreServices.framework */,
+				A3A80B4713CE5B9C00185C41 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -302,6 +314,34 @@
 			name = "Top Level";
 			sourceTree = "<group>";
 		};
+		A3A80B3913CE28E900185C41 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A3E5334313943F10004CCE49 /* WebView.xib */,
+				8D1107310486CEB800E47090 /* DemoApp-Info.plist */,
+				A3B0F7E413CA230200CD4E99 /* OAuthViewController.xib */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		A3A80B3A13CE28ED00185C41 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				A34893B0138E0E08007335CB /* UserPhone.xib */,
+				A3A80B2913CE26B500185C41 /* FeedPhone.xib */,
+				A3A80B4313CE296200185C41 /* PostLocationPhone.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		A3A80B3B13CE28F200185C41 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		A3B0F7E913CA232E00CD4E99 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +353,8 @@
 				A3B0F7ED13CA234500CD4E99 /* AuthContext.m */,
 				A3A80AE013CE236800185C41 /* Config.h */,
 				A3A80AE113CE236800185C41 /* Config.m */,
+				A3A80BE313CE703400185C41 /* FeedItemPoster.h */,
+				A3A80BE413CE703400185C41 /* FeedItemPoster.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -350,6 +392,8 @@
 		A3E531231394077E004CCE49 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				A3A80B4113CE296200185C41 /* PostLocationViewController.h */,
+				A3A80B4213CE296200185C41 /* PostLocationViewController.m */,
 				A348938B138E04E6007335CB /* FeedViewController.h */,
 				A348938C138E04E6007335CB /* FeedViewController.m */,
 				A340134C13922DF2005341B1 /* UserFeedViewController.h */,
@@ -527,6 +571,8 @@
 				A34893B1138E0E08007335CB /* UserPhone.xib in Resources */,
 				A3E5334413943F10004CCE49 /* WebView.xib in Resources */,
 				A3B0F7E613CA230200CD4E99 /* OAuthViewController.xib in Resources */,
+				A3A80B2A13CE26B500185C41 /* FeedPhone.xib in Resources */,
+				A3A80B4513CE296200185C41 /* PostLocationPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +608,8 @@
 				A3B0F94013CA373D00CD4E99 /* MappingManager.m in Sources */,
 				A3C82B1113CC193000DA5E5E /* Identity.m in Sources */,
 				A3A80AE213CE236800185C41 /* Config.m in Sources */,
+				A3A80B4413CE296200185C41 /* PostLocationViewController.m in Sources */,
+				A3A80BE513CE703400185C41 /* FeedItemPoster.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

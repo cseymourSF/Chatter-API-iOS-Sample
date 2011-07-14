@@ -51,10 +51,16 @@
 }
 
 - (void)fetch {
+	[self fetchWithOAuth:TRUE];
+}
+
+- (void)fetchWithOAuth:(Boolean)useOAuth {
 	// Make a request.
 	NSMutableURLRequest* photoRequest = [[[NSMutableURLRequest alloc] initWithURL:self.url] autorelease];
 	[photoRequest setHTTPMethod:@"GET"];
-	[[AuthContext context] addOAuthHeaderToNSRequest:photoRequest];
+	if (useOAuth) {
+		[[AuthContext context] addOAuthHeaderToNSRequest:photoRequest];
+	}
 	self.conn = [NSURLConnection connectionWithRequest:photoRequest delegate:self];
 }
 
