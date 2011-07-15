@@ -4,11 +4,11 @@
 <dict>
 	<key>PPCallbackUrl</key>
 	<string>https://login.salesforce.com/services/oauth2/success</string>
-	<key>PPLoginUrl</key>
-	<string>https://login.salesforce.com/services/oauth2/authorize</string>
-	<key>PPTokenUrlServer</key>
+	<key>PPAuthorizePath</key>
+	<string>/services/oauth2/authorize</string>
+	<key>PPLoginServer</key>
 	<string>https://login.salesforce.com</string>
-	<key>PPTokenUrlPath</key>
+	<key>PPTokenPath</key>
 	<string>/services/oauth2/token</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>

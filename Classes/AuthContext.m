@@ -42,7 +42,7 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 - (id)init {
 	self = [super init];
 	if (self != nil) {
-		restManager = [[RKObjectManager objectManagerWithBaseURL:[Config tokenUrlServer]] retain];
+		restManager = [[RKObjectManager objectManagerWithBaseURL:[Config loginServer]] retain];
 		
 		// Load the refresh token from the keychain, or initialize the keychain.
 		[self load];
@@ -159,7 +159,7 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 	// Construct the URL for the first login page.
 	return [NSURL URLWithString:[NSString stringWithFormat:
 								 @"%@?response_type=token&client_id=%@&redirect_uri=%@",
-								 [Config loginUrl], [Config consumerKey], encodedCallbackUrl]];
+								 [Config authorizeUrl], [Config consumerKey], encodedCallbackUrl]];
 }
 
 + (NSString*)extractParameterValue:(NSString*)parameter

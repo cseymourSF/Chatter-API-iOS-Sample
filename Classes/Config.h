@@ -12,8 +12,8 @@
 
 +(NSString*)consumerKey;
 +(NSString*)callbackUrl;
-+(NSString*)tokenUrlServer;
++(NSString*)loginServer;
 +(NSString*)tokenUrlPath;
-+(NSString*)loginUrl;
++(NSString*)authorizeUrl;
 
 @end

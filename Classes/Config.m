@@ -27,12 +27,12 @@
 	return [Config getConfigString:@"PPCallbackUrl"];
 }
 
-+(NSString*)loginUrl {
-	return [Config getConfigString:@"PPLoginUrl"];
++(NSString*)loginServer {
+	return [Config getConfigString:@"PPLoginServer"];
 }
 
-+(NSString*)tokenUrlServer {
-	return [Config getConfigString:@"PPTokenUrlServer"];
++(NSString*)authorizeUrl {
+	return [NSString stringWithFormat:@"%@%@", [Config loginServer], [Config getConfigString:@"PPAuthorizePath"]];
 }
 
 +(NSString*)tokenUrlPath {
