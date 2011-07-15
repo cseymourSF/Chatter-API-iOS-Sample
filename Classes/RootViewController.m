@@ -1,5 +1,5 @@
 //
-//  DemoAppViewController.m
+//  RootViewController.m
 //  DemoApp
 //
 //  Copyright 2011 Salesforce.com. All rights reserved.
@@ -18,11 +18,11 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "DemoAppViewController.h"
+#import "RootViewController.h"
 #import "NewsFeedViewController.h"
 #import "MappingManager.h"
 
-@implementation DemoAppViewController
+@implementation RootViewController
 
 @synthesize exploreBtn;
 @synthesize stateLbl;

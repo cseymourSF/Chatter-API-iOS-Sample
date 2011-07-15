@@ -36,7 +36,7 @@
 }
 
 +(NSString*)tokenUrlPath {
-	return [Config getConfigString:@"PPTokenUrlPath"];
+	return [Config getConfigString:@"PPTokenPath"];
 }
 
 @end

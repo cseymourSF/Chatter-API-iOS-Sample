@@ -13,7 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
-		28D7ACF80DDB3853001CB0EB /* DemoAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* DemoAppViewController.m */; };
+		28D7ACF80DDB3853001CB0EB /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* RootViewController.m */; };
 		A34012AE1390CFED005341B1 /* PhotoFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A34012AD1390CFED005341B1 /* PhotoFetcher.m */; };
 		A34012E41390DB8A005341B1 /* FeedItemPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A34012E31390DB8A005341B1 /* FeedItemPage.m */; };
 		A34012E71390DB95005341B1 /* FeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A34012E61390DB95005341B1 /* FeedItem.m */; };
@@ -142,8 +142,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		28D7ACF60DDB3853001CB0EB /* DemoAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppViewController.h; sourceTree = "<group>"; };
-		28D7ACF70DDB3853001CB0EB /* DemoAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppViewController.m; sourceTree = "<group>"; };
+		28D7ACF60DDB3853001CB0EB /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		28D7ACF70DDB3853001CB0EB /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* DemoApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoApp_Prefix.pch; path = ../DemoApp_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* DemoApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DemoApp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -293,8 +293,8 @@
 				A3B0F7E213CA230200CD4E99 /* OAuthViewController.h */,
 				A3B0F7E313CA230200CD4E99 /* OAuthViewController.m */,
 				A3E531231394077E004CCE49 /* Feed */,
-				28D7ACF60DDB3853001CB0EB /* DemoAppViewController.h */,
-				28D7ACF70DDB3853001CB0EB /* DemoAppViewController.m */,
+				28D7ACF60DDB3853001CB0EB /* RootViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* RootViewController.m */,
 				A382F5AC138BFC2C00AF5DAF /* UserViewController.h */,
 				A382F5AD138BFC2C00AF5DAF /* UserViewController.m */,
 				A3E5334013943DE4004CCE49 /* WebViewController.h */,
@@ -320,7 +320,6 @@
 				A3E5334313943F10004CCE49 /* WebView.xib */,
 				8D1107310486CEB800E47090 /* DemoApp-Info.plist */,
 				A3B0F7E413CA230200CD4E99 /* OAuthViewController.xib */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -328,6 +327,7 @@
 		A3A80B3A13CE28ED00185C41 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				A34893B0138E0E08007335CB /* UserPhone.xib */,
 				A3A80B2913CE26B500185C41 /* FeedPhone.xib */,
 				A3A80B4313CE296200185C41 /* PostLocationPhone.xib */,
@@ -585,7 +585,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* DemoAppAppDelegate.m in Sources */,
-				28D7ACF80DDB3853001CB0EB /* DemoAppViewController.m in Sources */,
+				28D7ACF80DDB3853001CB0EB /* RootViewController.m in Sources */,
 				A3CD6C961385C4C0000116E4 /* User.m in Sources */,
 				A3CD6C991385C60F000116E4 /* Address.m in Sources */,
 				A382F5AE138BFC2C00AF5DAF /* UserViewController.m in Sources */,

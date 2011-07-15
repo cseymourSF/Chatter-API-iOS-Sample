@@ -1,5 +1,5 @@
 //
-//  DemoAppViewController.h
+//  RootViewController.h
 //  DemoApp
 //
 //  Copyright 2011 Salesforce.com. All rights reserved.
@@ -23,7 +23,7 @@
 #import "PhotoFetcher.h"
 #import "AuthContext.h"
 
-@interface DemoAppViewController : UIViewController<RKObjectLoaderDelegate, PhotoFetcherDelegate, AccessTokenRefreshDelegate> {
+@interface RootViewController : UIViewController<RKObjectLoaderDelegate, PhotoFetcherDelegate, AccessTokenRefreshDelegate> {
 	UIButton* exploreBtn;
 	UILabel* stateLbl;
 	UILabel* nameLbl;

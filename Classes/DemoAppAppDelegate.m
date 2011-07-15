@@ -19,7 +19,6 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "DemoAppAppDelegate.h"
-#import "DemoAppViewController.h"
 
 @implementation DemoAppAppDelegate
 
