@@ -18,27 +18,19 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "ObjectFetcher.h"
-#import "FeedItemPage.h"
+#import "FeedController.h"
+#import "FeedItemPage.h";
 
-@interface FeedViewController : UIViewController<UITableViewDataSource, ObjectFetcherDelegate>  {
-	ObjectFetcher* feedFetcher;
-	NSMutableDictionary* segmentActions;
-	UITableView* feedTable;
+@interface FeedViewController : UIViewController {
+	FeedController* feedController;
 }
 
-@property(nonatomic, retain) ObjectFetcher* feedFetcher;
-
-- init;
-
 - (IBAction)postLocationClick:(id)sender;
-- (IBAction)onSegmentClick:(id)sender;
 
 // To be implemented in subclasses.
-- (void)fetchCompleted;
 - (NSString*)name;
 - (FeedItemPage*)page;
 
-@property(nonatomic, retain) IBOutlet UITableView* feedTable;
+@property(nonatomic, retain) IBOutlet FeedController* feedController;
 
 @end

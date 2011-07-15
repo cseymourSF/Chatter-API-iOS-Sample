@@ -40,7 +40,14 @@
 }
 
 - initWithUserId:(NSString*)inUserId{
-	self = [super initWithNibName:@"UserPhone" bundle:nil];
+	NSString* nibName;
+//	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+//		nibName = @"UserPad";
+//	} else {
+		nibName = @"UserPhone";
+//	}
+	
+	self = [super initWithNibName:nibName bundle:nil];
 	
 	if (self != nil) {
 		self.user = [[User alloc] init];

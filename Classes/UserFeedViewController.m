@@ -49,10 +49,6 @@
 	return self.userPage;
 }
 
-- (void)fetchCompleted {
-	// TODO: Do any extra stuff with the userPage...
-}
-
 - (void)dealloc {
 	[userPage release];
 	[userName release];

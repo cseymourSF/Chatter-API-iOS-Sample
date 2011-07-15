@@ -47,10 +47,6 @@
 	return self.newsPage;
 }
 
-- (void)fetchCompleted {
-	// TODO: Do any extra stuff with the userPage...
-}
-
 - (void)dealloc {
 	[newsPage release];
 	

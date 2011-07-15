@@ -45,6 +45,8 @@
 		A3C82B1113CC193000DA5E5E /* Identity.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C82B1013CC193000DA5E5E /* Identity.m */; };
 		A3CD6C961385C4C0000116E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CD6C951385C4C0000116E4 /* User.m */; };
 		A3CD6C991385C60F000116E4 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CD6C981385C60F000116E4 /* Address.m */; };
+		A3DF80B113CFC5F900F89058 /* UserPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3DF80B013CFC5F900F89058 /* UserPad.xib */; };
+		A3DF80C513D0B1A900F89058 /* FeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DF80C413D0B1A900F89058 /* FeedController.m */; };
 		A3E5312713940864004CCE49 /* UserFeedPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E5312613940864004CCE49 /* UserFeedPage.m */; };
 		A3E5322A1394211C004CCE49 /* NewsFeedPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E532291394211C004CCE49 /* NewsFeedPage.m */; };
 		A3E5322D13942186004CCE49 /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E5322C13942186004CCE49 /* NewsFeedViewController.m */; };
@@ -193,6 +195,9 @@
 		A3CD6C951385C4C0000116E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A3CD6C971385C60F000116E4 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
 		A3CD6C981385C60F000116E4 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
+		A3DF80B013CFC5F900F89058 /* UserPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPad.xib; sourceTree = "<group>"; };
+		A3DF80C313D0B1A900F89058 /* FeedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedController.h; sourceTree = "<group>"; };
+		A3DF80C413D0B1A900F89058 /* FeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedController.m; sourceTree = "<group>"; };
 		A3E5312513940864004CCE49 /* UserFeedPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFeedPage.h; sourceTree = "<group>"; };
 		A3E5312613940864004CCE49 /* UserFeedPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFeedPage.m; sourceTree = "<group>"; };
 		A3E532281394211C004CCE49 /* NewsFeedPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedPage.h; sourceTree = "<group>"; };
@@ -317,6 +322,7 @@
 		A3A80B3913CE28E900185C41 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				A3E5334313943F10004CCE49 /* WebView.xib */,
 				8D1107310486CEB800E47090 /* DemoApp-Info.plist */,
 				A3B0F7E413CA230200CD4E99 /* OAuthViewController.xib */,
@@ -327,7 +333,6 @@
 		A3A80B3A13CE28ED00185C41 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				A34893B0138E0E08007335CB /* UserPhone.xib */,
 				A3A80B2913CE26B500185C41 /* FeedPhone.xib */,
 				A3A80B4313CE296200185C41 /* PostLocationPhone.xib */,
@@ -338,6 +343,7 @@
 		A3A80B3B13CE28F200185C41 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				A3DF80B013CFC5F900F89058 /* UserPad.xib */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -400,6 +406,8 @@
 				A340134D13922DF2005341B1 /* UserFeedViewController.m */,
 				A3E5322B13942186004CCE49 /* NewsFeedViewController.h */,
 				A3E5322C13942186004CCE49 /* NewsFeedViewController.m */,
+				A3DF80C313D0B1A900F89058 /* FeedController.h */,
+				A3DF80C413D0B1A900F89058 /* FeedController.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -573,6 +581,7 @@
 				A3B0F7E613CA230200CD4E99 /* OAuthViewController.xib in Resources */,
 				A3A80B2A13CE26B500185C41 /* FeedPhone.xib in Resources */,
 				A3A80B4513CE296200185C41 /* PostLocationPhone.xib in Resources */,
+				A3DF80B113CFC5F900F89058 /* UserPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +619,7 @@
 				A3A80AE213CE236800185C41 /* Config.m in Sources */,
 				A3A80B4413CE296200185C41 /* PostLocationViewController.m in Sources */,
 				A3A80BE513CE703400185C41 /* FeedItemPoster.m in Sources */,
+				A3DF80C513D0B1A900F89058 /* FeedController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
