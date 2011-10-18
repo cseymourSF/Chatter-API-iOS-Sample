@@ -24,6 +24,10 @@
 		A34893B1138E0E08007335CB /* UserPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34893B0138E0E08007335CB /* UserPhone.xib */; };
 		A3489441138E17D0007335CB /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = A3489440138E17D0007335CB /* Photo.m */; };
 		A382F5AE138BFC2C00AF5DAF /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A382F5AD138BFC2C00AF5DAF /* UserViewController.m */; };
+		A3918984142D29C7009984D1 /* UserPhotoPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = A3918983142D29C7009984D1 /* UserPhotoPoster.m */; };
+		A391899D142D2D7A009984D1 /* Identity.m in Sources */ = {isa = PBXBuildFile; fileRef = A391899C142D2D7A009984D1 /* Identity.m */; };
+		A39189E4142D3621009984D1 /* PostPhotoPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39189E3142D3621009984D1 /* PostPhotoPhone.xib */; };
+		A3918A0B142D36F2009984D1 /* PostPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3918A0A142D36F2009984D1 /* PostPhotoController.m */; };
 		A3992C8E1384E89B00FDDBB4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3992C8D1384E89B00FDDBB4 /* CFNetwork.framework */; };
 		A3992C901384E89B00FDDBB4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3992C8F1384E89B00FDDBB4 /* MobileCoreServices.framework */; };
 		A39CBE0513848615006F68E4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39CBE0413848615006F68E4 /* SystemConfiguration.framework */; };
@@ -42,7 +46,7 @@
 		A3B0F94013CA373D00CD4E99 /* MappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B0F93F13CA373D00CD4E99 /* MappingManager.m */; };
 		A3B0FAC213CA427D00CD4E99 /* libRestKitJSONParserYAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B0F85513CA2E1400CD4E99 /* libRestKitJSONParserYAJL.a */; };
 		A3C82AA313CC0F3D00DA5E5E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39CBE0213848615006F68E4 /* Security.framework */; };
-		A3C82B1113CC193000DA5E5E /* Identity.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C82B1013CC193000DA5E5E /* Identity.m */; };
+		A3C82B1113CC193000DA5E5E /* LoginSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C82B1013CC193000DA5E5E /* LoginSuccess.m */; };
 		A3CD6C961385C4C0000116E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CD6C951385C4C0000116E4 /* User.m */; };
 		A3CD6C991385C60F000116E4 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CD6C981385C60F000116E4 /* Address.m */; };
 		A3DF80B113CFC5F900F89058 /* UserPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3DF80B013CFC5F900F89058 /* UserPad.xib */; };
@@ -154,7 +158,7 @@
 		A34012E21390DB8A005341B1 /* FeedItemPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItemPage.h; sourceTree = "<group>"; };
 		A34012E31390DB8A005341B1 /* FeedItemPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItemPage.m; sourceTree = "<group>"; };
 		A34012E51390DB95005341B1 /* FeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItem.h; sourceTree = "<group>"; };
-		A34012E61390DB95005341B1 /* FeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItem.m; sourceTree = "<group>"; };
+		A34012E61390DB95005341B1 /* FeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItem.m; sourceTree = "<group>"; wrapsLines = 1; };
 		A34012E81390DE4F005341B1 /* FeedBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBody.h; sourceTree = "<group>"; };
 		A34012E91390DE4F005341B1 /* FeedBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBody.m; sourceTree = "<group>"; };
 		A340134C13922DF2005341B1 /* UserFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFeedViewController.h; sourceTree = "<group>"; };
@@ -168,6 +172,13 @@
 		A3489440138E17D0007335CB /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		A382F5AC138BFC2C00AF5DAF /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		A382F5AD138BFC2C00AF5DAF /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		A3918982142D29C7009984D1 /* UserPhotoPoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPhotoPoster.h; sourceTree = "<group>"; };
+		A3918983142D29C7009984D1 /* UserPhotoPoster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPhotoPoster.m; sourceTree = "<group>"; };
+		A391899B142D2D7A009984D1 /* Identity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Identity.h; sourceTree = "<group>"; };
+		A391899C142D2D7A009984D1 /* Identity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Identity.m; sourceTree = "<group>"; };
+		A39189E3142D3621009984D1 /* PostPhotoPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostPhotoPhone.xib; sourceTree = "<group>"; };
+		A3918A09142D36F2009984D1 /* PostPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostPhotoController.h; sourceTree = "<group>"; };
+		A3918A0A142D36F2009984D1 /* PostPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostPhotoController.m; sourceTree = "<group>"; };
 		A3992C8D1384E89B00FDDBB4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A3992C8F1384E89B00FDDBB4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A39CBE0213848615006F68E4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -189,8 +200,8 @@
 		A3B0F83A13CA2E1400CD4E99 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = Classes/RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		A3B0F93E13CA373D00CD4E99 /* MappingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingManager.h; sourceTree = "<group>"; };
 		A3B0F93F13CA373D00CD4E99 /* MappingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingManager.m; sourceTree = "<group>"; };
-		A3C82B0F13CC193000DA5E5E /* Identity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Identity.h; sourceTree = "<group>"; };
-		A3C82B1013CC193000DA5E5E /* Identity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Identity.m; sourceTree = "<group>"; };
+		A3C82B0F13CC193000DA5E5E /* LoginSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginSuccess.h; sourceTree = "<group>"; };
+		A3C82B1013CC193000DA5E5E /* LoginSuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginSuccess.m; sourceTree = "<group>"; };
 		A3CD6C941385C4C0000116E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		A3CD6C951385C4C0000116E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A3CD6C971385C60F000116E4 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
@@ -304,6 +315,8 @@
 				A382F5AD138BFC2C00AF5DAF /* UserViewController.m */,
 				A3E5334013943DE4004CCE49 /* WebViewController.h */,
 				A3E5334113943DE4004CCE49 /* WebViewController.m */,
+				A3918A09142D36F2009984D1 /* PostPhotoController.h */,
+				A3918A0A142D36F2009984D1 /* PostPhotoController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -336,6 +349,7 @@
 				A34893B0138E0E08007335CB /* UserPhone.xib */,
 				A3A80B2913CE26B500185C41 /* FeedPhone.xib */,
 				A3A80B4313CE296200185C41 /* PostLocationPhone.xib */,
+				A39189E3142D3621009984D1 /* PostPhotoPhone.xib */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -361,6 +375,8 @@
 				A3A80AE113CE236800185C41 /* Config.m */,
 				A3A80BE313CE703400185C41 /* FeedItemPoster.h */,
 				A3A80BE413CE703400185C41 /* FeedItemPoster.m */,
+				A3918982142D29C7009984D1 /* UserPhotoPoster.h */,
+				A3918983142D29C7009984D1 /* UserPhotoPoster.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -389,8 +405,10 @@
 				A3E5312413940846004CCE49 /* Feed */,
 				A3B0F93E13CA373D00CD4E99 /* MappingManager.h */,
 				A3B0F93F13CA373D00CD4E99 /* MappingManager.m */,
-				A3C82B0F13CC193000DA5E5E /* Identity.h */,
-				A3C82B1013CC193000DA5E5E /* Identity.m */,
+				A3C82B0F13CC193000DA5E5E /* LoginSuccess.h */,
+				A3C82B1013CC193000DA5E5E /* LoginSuccess.m */,
+				A391899B142D2D7A009984D1 /* Identity.h */,
+				A391899C142D2D7A009984D1 /* Identity.m */,
 			);
 			name = RestObjects;
 			sourceTree = "<group>";
@@ -582,6 +600,7 @@
 				A3A80B2A13CE26B500185C41 /* FeedPhone.xib in Resources */,
 				A3A80B4513CE296200185C41 /* PostLocationPhone.xib in Resources */,
 				A3DF80B113CFC5F900F89058 /* UserPad.xib in Resources */,
+				A39189E4142D3621009984D1 /* PostPhotoPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,11 +634,14 @@
 				A3B0F7E513CA230200CD4E99 /* OAuthViewController.m in Sources */,
 				A3B0F7EE13CA234500CD4E99 /* AuthContext.m in Sources */,
 				A3B0F94013CA373D00CD4E99 /* MappingManager.m in Sources */,
-				A3C82B1113CC193000DA5E5E /* Identity.m in Sources */,
+				A3C82B1113CC193000DA5E5E /* LoginSuccess.m in Sources */,
 				A3A80AE213CE236800185C41 /* Config.m in Sources */,
 				A3A80B4413CE296200185C41 /* PostLocationViewController.m in Sources */,
 				A3A80BE513CE703400185C41 /* FeedItemPoster.m in Sources */,
 				A3DF80C513D0B1A900F89058 /* FeedController.m in Sources */,
+				A3918984142D29C7009984D1 /* UserPhotoPoster.m in Sources */,
+				A391899D142D2D7A009984D1 /* Identity.m in Sources */,
+				A3918A0B142D36F2009984D1 /* PostPhotoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

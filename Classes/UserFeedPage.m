@@ -25,7 +25,7 @@
 @synthesize userId;
 
 +(void)setupMapping:(RKObjectManager*)manager {
-	[FeedItemPage setupMapping:manager subclass:[UserFeedPage class] urlFormat:@"/services/data/v22.0/chatter/feeds/user-profile/(userId)/feed-items"];
+	[FeedItemPage setupMapping:manager subclass:[UserFeedPage class] urlFormat:@"/services/data/v23.0/chatter/feeds/user-profile/(userId)/feed-items"];
 }
 
 - (void)dealloc {

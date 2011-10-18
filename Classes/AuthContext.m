@@ -7,7 +7,6 @@
 //
 
 #import "AuthContext.h"
-#import "Identity.h"
 #import "Config.h"
 
 @implementation AuthContext
@@ -19,6 +18,7 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 @synthesize accessToken;
 @synthesize refreshToken;
 @synthesize instanceUrl;
+@synthesize identity;
 
 + (void)initialize
 {
@@ -46,6 +46,8 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 		
 		// Load the refresh token from the keychain, or initialize the keychain.
 		[self load];
+		
+		loggedIn = FALSE;
 	}
 	return self;
 }
@@ -76,15 +78,15 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 	// Save the delegate for later (do not retain).
 	delegate = delegateIn;
 	
-	// Reset the identity.
-	[identity release];
-	identity = [[Identity alloc] init];
+	// Reset the login success.
+	[loginSuccess release];
+	loginSuccess = [[LoginSuccess alloc] init];
 	
 	RKObjectLoader* loader = [RKObjectLoader loaderWithResourcePath:targetUrl objectManager:restManager delegate:self];
 	loader.method = RKRequestMethodPOST;
 	loader.sourceObject = nil; // Don't POST any data.
-	loader.targetObject = identity;
-	loader.objectMapping = [Identity getMapping];
+	loader.targetObject = loginSuccess;
+	loader.objectMapping = [LoginSuccess getMapping];
 	[loader send];
 	
 	return TRUE;
@@ -149,6 +151,8 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 	self.instanceUrl = nil;
 	self.accessToken = nil;
 	
+	loggedIn = FALSE;
+	
 	[self save];
 }
 
@@ -165,7 +169,7 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 + (NSString*)extractParameterValue:(NSString*)parameter
 							  from:(NSString*)source {
 	NSError* error = nil;
-	NSString* pattern = [NSString stringWithFormat:@"%@=([%%.\\w\\d]*)", parameter];
+	NSString* pattern = [NSString stringWithFormat:@"%@=([%%.\\w\\d-]*)", parameter];
 	
 	NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
 	NSTextCheckingResult* result = [regex firstMatchInString:source options:0 range:NSMakeRange(0, [source length])];		
@@ -180,6 +184,22 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 	}
 }
 
+- (void)retrieveIdentity:(NSString*)identityUrl {
+	self.identity = [[Identity alloc] init];
+	
+	[identityManager release];
+	identityManager = [[RKObjectManager objectManagerWithBaseURL:self.instanceUrl] retain];
+
+	RKObjectLoader* identityLoader = [RKObjectLoader loaderWithResourcePath:identityUrl objectManager:identityManager delegate:self];
+	identityLoader.method = RKRequestMethodGET;
+	identityLoader.targetObject = self.identity;
+	identityLoader.objectMapping = [Identity getMapping];
+	[self addOAuthHeader:identityLoader];	
+
+	// TODO: Why does this try to use localhost? I explicitly told it NOT TO!
+	[identityLoader send];
+}
+
 - (void)processCallbackUrl:(NSURL*)callbackUrl {
 	// Extract tokens from callback url.
 	
@@ -189,7 +209,16 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 	self.accessToken = [AuthContext extractParameterValue:@"access_token" from:fragment];
 	self.refreshToken = [AuthContext extractParameterValue:@"refresh_token" from:fragment];
 	self.instanceUrl = [AuthContext extractParameterValue:@"instance_url" from:fragment];
+	
 	[self save];
+	
+	if (self.refreshToken != nil) {
+		loggedIn = TRUE;
+	
+		// Fetch the identity.
+		NSString* identityUrl = [AuthContext extractParameterValue:@"id" from:fragment];
+		[self retrieveIdentity:identityUrl];
+	}
 }
 
 - (NSString*)getOAuthHeaderValue {
@@ -206,24 +235,55 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 	[request addValue:[self getOAuthHeaderValue] forHTTPHeaderField:@"Authorization"];
 }
 
+- (NSString*)userId {
+	return userId;
+}
+
+- (void)setUserId:(NSString*)value {
+	userId = value;
+}
+
 - (void)dealloc {
+	[userId release];
+	
 	[accessToken release];
 	[refreshToken release];
 	[instanceUrl release];
 	
 	[restManager release];
+	[identityManager release];
+	[loginSuccess release];
 	[identity release];
+	[identityFetcher release];
 	
 	[super dealloc];
 }
 
 // RKObjectLoaderDelegate implementation
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects {
-	NSLog(@"RestKit retrieved Identity on refresh, got new access token: %@ instanceURL: %@", identity.accessToken, identity.instanceUrl);
-	self.accessToken = identity.accessToken;
-	self.instanceUrl = identity.instanceUrl;
-	
-	[delegate refreshCompleted];
+	if (!loggedIn) {
+		NSLog(@"RestKit retrieved LoginSuccess on refresh, got new access token: %@ instanceURL: %@", loginSuccess.accessToken, loginSuccess.instanceUrl);
+		self.accessToken = loginSuccess.accessToken;
+		if ([[Config loginServer] rangeOfString:@"login.salesforce.com"].location != NSNotFound) {
+			// Production
+			self.instanceUrl = loginSuccess.instanceUrl;
+		} else {
+			// Development
+			self.instanceUrl = [Config loginServer];
+		}
+		
+		[delegate refreshCompleted];
+		
+		loggedIn = TRUE;
+		
+		// Retrieve identity.
+		// Assuming this starts with [Config loginServer]...
+		NSRange relativeStart = [loginSuccess.identityUrl rangeOfString:@"/id"];
+		NSString* identityUrl = [loginSuccess.identityUrl substringFromIndex:relativeStart.location];
+		[self retrieveIdentity:identityUrl];
+	} else {
+		NSLog(@"Retrieved identity successfully. user id: %@", self.identity.user_id);
+	}
 }
 
 - (void)objectLoaderDidLoadUnexpectedResponse:(RKObjectLoader *)objectLoader {
@@ -232,7 +292,7 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-	NSLog(@"RestKit failed to retrieve Identity on refres, with error: %@", error); 
+	NSLog(@"RestKit failed to retrieve Identity on refresh with error: %@", error); 
 	[delegate refreshCompleted];
 }
 

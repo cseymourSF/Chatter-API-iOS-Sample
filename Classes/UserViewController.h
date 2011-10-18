@@ -32,6 +32,7 @@
 	UILabel* emailLbl;
 	UILabel* aboutLbl;
 	UILabel* titleLbl;
+	UIButton* setPhotoBtn;
 	UIImageView* imageView;
 }
 
@@ -39,6 +40,7 @@
 @property(nonatomic, retain) ObjectFetcher* userFetcher;
 @property(nonatomic, retain) PhotoFetcher* photoFetcher;
 
+@property(nonatomic, retain) IBOutlet UIButton* setPhotoBtn;
 @property(nonatomic, retain) IBOutlet UILabel* nameLbl;
 @property(nonatomic, retain) IBOutlet UILabel* locationLbl;
 @property(nonatomic, retain) IBOutlet UILabel* emailLbl;
@@ -50,5 +52,7 @@
 
 - initWithUserId:(NSString*)inUserId;
 - (IBAction)feedClick:(id)sender;
+
+- (IBAction)postPhoto:(id)sender;
 
 @end

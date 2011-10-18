@@ -24,7 +24,7 @@
 @implementation NewsFeedPage
 
 +(void)setupMapping:(RKObjectManager*)manager {
-	[FeedItemPage setupMapping:manager subclass:[NewsFeedPage class] urlFormat:@"/services/data/v22.0/chatter/feeds/news/me/feed-items"];
+	[FeedItemPage setupMapping:manager subclass:[NewsFeedPage class] urlFormat:@"/services/data/v23.0/chatter/feeds/news/me/feed-items"];
 }
 
 @end

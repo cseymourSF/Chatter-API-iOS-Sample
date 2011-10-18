@@ -22,6 +22,7 @@
 #import "UserFeedViewController.h"
 #import "AuthContext.h"
 #import "FeedBody.h"
+#import "PostPhotoController.h"
 
 @implementation UserViewController
 
@@ -34,6 +35,7 @@
 @synthesize aboutLbl;
 @synthesize titleLbl;
 @synthesize photoFetcher;
+@synthesize setPhotoBtn;
 
 + (UserViewController*)createWithUserId:(NSString*)userId{
 	return [[[UserViewController alloc] initWithUserId:userId] autorelease];
@@ -67,6 +69,7 @@
 	[userFetcher release];
 	[photoFetcher release];
 	[imageView release];
+	[setPhotoBtn release];
 	
 	[super dealloc];
 }
@@ -80,6 +83,13 @@
 	[locationLbl setText:@""];
 	[aboutLbl setText:@""];
 	[titleLbl setText:@""];
+	if ([user.userId compare:[[AuthContext context] userId]] == NSOrderedSame) {
+		[setPhotoBtn setEnabled:TRUE];
+		[setPhotoBtn setAlpha:1.0];
+	} else {
+		[setPhotoBtn setEnabled:FALSE];
+		[setPhotoBtn setAlpha:0.5];
+	}
 
 	// Fetch the User.
 	self.userFetcher = [[ObjectFetcher alloc] initWithTag:@"user" object:self.user delegate:self];
@@ -100,6 +110,11 @@
 	} else {
 		return [NSString stringWithFormat:@"%@, %@", base, part];
 	}
+}
+
+- (IBAction)postPhoto:(id)sender {
+	PostPhotoController* poster = [[[PostPhotoController alloc] init] autorelease];
+	[[self navigationController] pushViewController:poster animated:YES];
 }
 
 // ================

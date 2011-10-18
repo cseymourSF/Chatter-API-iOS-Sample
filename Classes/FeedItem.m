@@ -41,10 +41,10 @@
 	RKObjectMapping* userMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[User class]];
 	RKObjectMapping* bodyMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[FeedBody class]];
 	
-	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"user" toKeyPath:@"author" objectMapping:userMapping]];
+	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"actor" toKeyPath:@"author" objectMapping:userMapping]];
 	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"body" toKeyPath:@"body" objectMapping:bodyMapping]];
 	
-	[manager.router routeClass:[FeedItem class] toResourcePath:@"/services/data/v22.0/chatter/feed-items/(feedItemId)" forMethod:RKRequestMethodGET];
+	[manager.router routeClass:[FeedItem class] toResourcePath:@"/services/data/v23.0/chatter/feed-items/(feedItemId)" forMethod:RKRequestMethodGET];
 	[manager.mappingProvider addObjectMapping:mapping];
 }
 - (void)dealloc {

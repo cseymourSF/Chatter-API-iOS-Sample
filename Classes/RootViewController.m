@@ -129,6 +129,7 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects {
 	[nameLbl setText:[user name]];
 	[titleLbl setText:[user title]];
+	[[AuthContext context] setUserId:[user userId]];
 	
 	// Retrieve the user's photo.
 	photoFetcher = [[PhotoFetcher alloc] initWithTag:@"userPhoto" photoUrl:user.photo.largePhotoUrl delegate:self];

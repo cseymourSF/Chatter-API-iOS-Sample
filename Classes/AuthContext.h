@@ -7,6 +7,8 @@
 //
 
 #import "Identity.h"
+#import "LoginSuccess.h"
+#import "ObjectFetcher.h"
 
 @protocol AccessTokenRefreshDelegate<NSObject>
 - (void)refreshCompleted;
@@ -18,9 +20,16 @@
 	NSString* refreshToken;
 	NSString* instanceUrl;
 	
+	NSString* userId;
+	
 	RKObjectManager* restManager;
+	RKObjectManager* identityManager;
+	ObjectFetcher* identityFetcher;
+	LoginSuccess* loginSuccess;
 	Identity* identity;
 	NSObject<AccessTokenRefreshDelegate>* delegate;
+	
+	BOOL loggedIn;
 }
 
 + (AuthContext*)context;
@@ -35,8 +44,12 @@
 - (void)addOAuthHeaderToNSRequest:(NSMutableURLRequest*)request;
 - (void)processCallbackUrl:(NSURL*)callbackUrl;
 
+- (NSString*)userId;
+- (void)setUserId:(NSString*)value;
+
 @property(nonatomic, retain) NSString* accessToken;
 @property(nonatomic, retain) NSString* refreshToken;
 @property(nonatomic, retain) NSString* instanceUrl;
+@property(nonatomic, retain) Identity* identity;
 
 @end
