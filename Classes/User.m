@@ -37,7 +37,7 @@
 	
 	// Assuming that the Address mapping is registered.
 	RKObjectMapping* addressMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[Address class]];
-	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"address" toKeyPath:@"address" objectMapping:addressMapping]];
+	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"address" toKeyPath:@"address" withMapping:addressMapping]];
 	
 	[manager.router routeClass:[User class] toResourcePath:@"/services/data/v23.0/chatter/users/(userId)" forMethod:RKRequestMethodGET];	
 	[manager.mappingProvider addObjectMapping:mapping];

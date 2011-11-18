@@ -33,7 +33,7 @@
 	
 	// Assuming that MessageSegment already registered mappings.
 	RKObjectMapping* segMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[MessageSegment class]];
-	[mapping hasMany:@"messageSegments" withObjectMapping:segMapping];
+	[mapping hasMany:@"messageSegments" withMapping:segMapping];
 	
 	[manager.mappingProvider addObjectMapping:mapping];
 }

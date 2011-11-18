@@ -37,7 +37,7 @@
 	
 	// Assuming that UserSummary already registered mappings.
 	RKObjectMapping* userSummaryMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[UserSummary class]];
-	[mapping hasOne:@"user" withObjectMapping:userSummaryMapping];
+	[mapping hasOne:@"user" withMapping:userSummaryMapping];
 	
 	[manager.mappingProvider addObjectMapping:mapping];
 }

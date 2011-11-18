@@ -33,7 +33,7 @@
 
 	// Assuming that the FeedItem mapping is registered.
 	RKObjectMapping* feedItemMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[FeedItem class]];
-	[mapping hasMany:@"items" withObjectMapping:feedItemMapping];
+	[mapping hasMany:@"items" withMapping:feedItemMapping];
 	
 	[manager.router routeClass:clazz toResourcePath:urlFormat forMethod:RKRequestMethodGET];
 	[manager.mappingProvider addObjectMapping:mapping];

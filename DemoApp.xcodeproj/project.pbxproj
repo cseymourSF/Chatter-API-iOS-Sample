@@ -61,6 +61,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A310E8311477236C00CDD928 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3B0F83A13CA2E1400CD4E99 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 20808DBD13DE8CDC000A156A /* libRestKitJSONParserNXJSON.a */;
+			remoteInfo = "RestKitJSONParser+NXJSON";
+		};
 		A3B0F84E13CA2E1400CD4E99 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A3B0F83A13CA2E1400CD4E99 /* RestKit.xcodeproj */;
@@ -387,13 +394,14 @@
 				A3B0F84F13CA2E1400CD4E99 /* libRestKitNetwork.a */,
 				A3B0F85113CA2E1400CD4E99 /* libRestKitObjectMapping.a */,
 				A3B0F85313CA2E1400CD4E99 /* libRestKitSupport.a */,
+				A310E8321477236C00CDD928 /* libRestKitJSONParserNXJSON.a */,
 				A3B0F85513CA2E1400CD4E99 /* libRestKitJSONParserYAJL.a */,
 				A3B0F85713CA2E1400CD4E99 /* libRestKitJSONParserSBJSON.a */,
 				A3B0F85913CA2E1400CD4E99 /* libRestKitJSONParserJSONKit.a */,
 				A3B0F85B13CA2E1400CD4E99 /* libRestKitXMLParserLibxml.a */,
 				A3B0F85D13CA2E1400CD4E99 /* libRestKitCoreData.a */,
 				A3B0F85F13CA2E1400CD4E99 /* libRestKitThree20.a */,
-				A3B0F86113CA2E1400CD4E99 /* UISpec.app */,
+				A3B0F86113CA2E1400CD4E99 /* RestKitSpecs.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -516,6 +524,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		A310E8321477236C00CDD928 /* libRestKitJSONParserNXJSON.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserNXJSON.a;
+			remoteRef = A310E8311477236C00CDD928 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		A3B0F84F13CA2E1400CD4E99 /* libRestKitNetwork.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -579,10 +594,10 @@
 			remoteRef = A3B0F85E13CA2E1400CD4E99 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A3B0F86113CA2E1400CD4E99 /* UISpec.app */ = {
+		A3B0F86113CA2E1400CD4E99 /* RestKitSpecs.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
-			path = UISpec.app;
+			path = RestKitSpecs.app;
 			remoteRef = A3B0F86013CA2E1400CD4E99 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

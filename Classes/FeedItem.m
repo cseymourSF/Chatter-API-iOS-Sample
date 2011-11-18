@@ -41,8 +41,8 @@
 	RKObjectMapping* userMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[User class]];
 	RKObjectMapping* bodyMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[FeedBody class]];
 	
-	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"actor" toKeyPath:@"author" objectMapping:userMapping]];
-	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"body" toKeyPath:@"body" objectMapping:bodyMapping]];
+	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"actor" toKeyPath:@"author" withMapping:userMapping]];
+	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"body" toKeyPath:@"body" withMapping:bodyMapping]];
 	
 	[manager.router routeClass:[FeedItem class] toResourcePath:@"/services/data/v23.0/chatter/feed-items/(feedItemId)" forMethod:RKRequestMethodGET];
 	[manager.mappingProvider addObjectMapping:mapping];

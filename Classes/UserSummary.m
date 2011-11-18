@@ -43,7 +43,7 @@
 	
 	// Assuming that the Photo mapping is registered.
 	RKObjectMapping* photoMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[Photo class]];
-	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"photo" toKeyPath:@"photo" objectMapping:photoMapping]];
+	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"photo" toKeyPath:@"photo" withMapping:photoMapping]];
 }
 
 - (void)dealloc {
