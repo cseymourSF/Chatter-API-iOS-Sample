@@ -19,12 +19,12 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "NewsFeedPage.h"
-
+#import "Config.h"
 
 @implementation NewsFeedPage
 
 +(void)setupMapping:(RKObjectManager*)manager {
-	[FeedItemPage setupMapping:manager subclass:[NewsFeedPage class] urlFormat:@"/services/data/v23.0/chatter/feeds/news/me/feed-items"];
+	[FeedItemPage setupMapping:manager subclass:[NewsFeedPage class] urlFormat:[Config addVersionPrefix:@"/chatter/feeds/news/me/feed-items"]];
 }
 
 @end

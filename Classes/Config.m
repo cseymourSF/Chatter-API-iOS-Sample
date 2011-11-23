@@ -39,4 +39,12 @@
 	return [Config getConfigString:@"PPTokenPath"];
 }
 
++(NSString*)addVersionPrefix:(NSString*)url {
+	return [NSString stringWithFormat:@"/services/data/v%i.0%@", [Config getVersion], url];
+}
+
++(int)getVersion {
+	return [[Config getConfigString:@"PPApiVersion"] intValue];
+}
+
 @end

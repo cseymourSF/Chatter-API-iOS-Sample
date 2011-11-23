@@ -19,6 +19,7 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "User.h"
+#import "Config.h"
 
 @implementation User
 
@@ -39,7 +40,7 @@
 	RKObjectMapping* addressMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[Address class]];
 	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"address" toKeyPath:@"address" withMapping:addressMapping]];
 	
-	[manager.router routeClass:[User class] toResourcePath:@"/services/data/v23.0/chatter/users/(userId)" forMethod:RKRequestMethodGET];	
+	[manager.router routeClass:[User class] toResourcePath:[Config addVersionPrefix:@"/chatter/users/(userId)"] forMethod:RKRequestMethodGET];	
 	[manager.mappingProvider addObjectMapping:mapping];
 }
 

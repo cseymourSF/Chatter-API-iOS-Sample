@@ -19,13 +19,14 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "UserFeedPage.h"
+#import "Config.h"
 
 @implementation UserFeedPage
 
 @synthesize userId;
 
 +(void)setupMapping:(RKObjectManager*)manager {
-	[FeedItemPage setupMapping:manager subclass:[UserFeedPage class] urlFormat:@"/services/data/v23.0/chatter/feeds/user-profile/(userId)/feed-items"];
+	[FeedItemPage setupMapping:manager subclass:[UserFeedPage class] urlFormat:[Config addVersionPrefix:@"/chatter/feeds/user-profile/(userId)/feed-items"]];
 }
 
 - (void)dealloc {

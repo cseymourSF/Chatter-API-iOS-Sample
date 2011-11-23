@@ -228,11 +228,20 @@ static const NSString* keychainIdentifier = @"com.salesforce.PhotoPoster.AuthKey
 - (void)addOAuthHeader:(RKRequest*)request {
 	NSMutableDictionary* headerDict = [[[NSMutableDictionary alloc] initWithCapacity:1] autorelease];
 	[headerDict setObject:[self getOAuthHeaderValue] forKey:@"Authorization"];
+	
+	// Don't return entity encoded, HTML-safe strings.
+	// Never do this for strings that will be embedded in web pages!!!
+	[headerDict setObject:@"false" forKey:@"X-Chatter-Entity-Encoding"];
+	
 	[request setAdditionalHTTPHeaders:headerDict];
 }
 
 - (void)addOAuthHeaderToNSRequest:(NSMutableURLRequest*)request {
 	[request addValue:[self getOAuthHeaderValue] forHTTPHeaderField:@"Authorization"];
+	
+	// Don't return entity encoded, HTML-safe strings.
+	// Never do this for strings that will be embedded in web pages!!!
+	[request addValue:@"false" forHTTPHeaderField:@"X-Chatter-Entity-Encoding"];
 }
 
 - (NSString*)userId {

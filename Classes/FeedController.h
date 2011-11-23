@@ -8,6 +8,7 @@
 
 #import "ObjectFetcher.h"
 #import "FeedItemPage.h"
+#import "FeedItem.h"
 
 @interface FeedController : NSObject<UITableViewDataSource, ObjectFetcherDelegate>  {
 	FeedItemPage* feedPage;
@@ -25,5 +26,7 @@
 
 - (void)fetchWithNavController:(UINavigationController*)navControllerIn page:(FeedItemPage*)pageIn;
 - (IBAction)onSegmentClick:(id)sender;
+
++ (void)renderFeedItem:(FeedItem*)feedItem maxWidth:(int)maxWidth startingX:(int)initialXOffset view:(UIView*)view actions:(NSMutableDictionary*)actions actionDelegate:(id)delegate;
 
 @end

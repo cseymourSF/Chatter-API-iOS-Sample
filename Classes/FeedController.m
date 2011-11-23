@@ -19,6 +19,7 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "FeedController.h"
+#import "FeedItemController.h"
 #import "FeedItem.h"
 #import "MessageSegment.h"
 
@@ -56,6 +57,14 @@
 	self.feedFetcher = [[ObjectFetcher alloc] initWithTag:@"feed" object:self.feedPage delegate:self];
 	[self.feedFetcher fetch];
 }
+
+- (IBAction)onDetailClick:(id)sender {
+	UIView* viewSender = (UIView*)sender;
+	FeedItem* feedItem = [self.feedPage.items objectAtIndex:viewSender.tag];
+	
+	// Show feed item details.
+	[self.navController pushViewController:[[[FeedItemController alloc] initWithFeedItem:feedItem] autorelease] animated:YES];
+}	
 
 - (IBAction)onSegmentClick:(id)sender {
 	UIView* viewSender = (UIView*)sender;
@@ -113,6 +122,15 @@
 	UIView* content = [cell contentView];
 	int xOffset = 0;
 	
+	// Add support for viewing the feed item details.
+	UIButton* detailBtn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+	detailBtn.frame = CGRectMake(xOffset, 0, 25, 25);
+	detailBtn.tag = indexPath.row; // tag = feed item index
+	[detailBtn addTarget:self action:@selector(onDetailClick:) forControlEvents:UIControlEventTouchDown];
+	[content addSubview:detailBtn];
+	
+	xOffset += 25 + 5;
+	
 	// TODO: Put mention adding into shared function.
 	UIFont* authorFont = [UIFont boldSystemFontOfSize:12];
 	CGSize stringsize = [[[feedItem author] name] sizeWithFont:authorFont];
@@ -123,7 +141,6 @@
 	
 	int actionIndex = [segmentActions count];
 	authorBtn.tag = actionIndex;
-	
 	[segmentActions setObject:[NSString stringWithFormat:@"mention:%@", [[feedItem author] userId]] forKey:[NSNumber numberWithInt:actionIndex]];
 	[authorBtn addTarget:self action:@selector(onSegmentClick:) forControlEvents:UIControlEventTouchDown];
 	
@@ -133,15 +150,35 @@
 	
 	// Add segments.
 	CGFloat maxWidth = [cell bounds].size.width;
+	[FeedController renderFeedItem:feedItem maxWidth:maxWidth startingX:xOffset view:content actions:segmentActions actionDelegate:self];
+		
+	//	CGRect oldFrame = cell.frame;
+	//	NSLog(@"Old cell height: %.0f", oldFrame.size.height);
+	//	cell.frame = CGRectMake(oldFrame.origin.x, oldFrame.origin.y, oldFrame.size.width, yOffset + rowHeight);
+	//	NSLog(@"New cell height: %.0f", cell.frame.size.height);
+	return cell;
+}
+
++(void)renderFeedItem:(FeedItem*)feedItem 
+			 maxWidth:(int)maxWidth 
+			startingX:(int)initialXOffset 
+				 view:(UIView*)view 
+			  actions:(NSMutableDictionary*)actions
+	   actionDelegate:(id)delegate {
+	
+	// Add segments.
 	int rowHeight = 22;
 	int yOffset = 0;
+	int xOffset = initialXOffset;
+	
 	UIFont* font = [UIFont systemFontOfSize:12];
+	
 	for (int i = 0; i < [[[feedItem body] messageSegments] count]; i++) {
 		MessageSegment* segment = (MessageSegment*)[[[feedItem body] messageSegments] objectAtIndex:i];
-		
+	
 		int segWidth = 0;
 		UIView* subView = nil;
-		
+	
 		if ([[segment type] compare:@"Link"] == NSOrderedSame) {
 			segWidth = [[segment text] sizeWithFont:font].width + 5;
 			UIButton* btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -149,11 +186,13 @@
 			btn.frame = CGRectMake(xOffset, yOffset, segWidth, rowHeight);
 			[btn titleLabel].font = font;
 			
-			actionIndex = [segmentActions count];
-			btn.tag = actionIndex;
+			if (actions != nil) {
+				int actionIndex = [actions count];
+				btn.tag = actionIndex;
 			
-			[segmentActions setObject:[NSString stringWithFormat:@"link:%@", [segment url]] forKey:[NSNumber numberWithInt:actionIndex]];
-			[btn addTarget:self action:@selector(onSegmentClick:) forControlEvents:UIControlEventTouchDown];
+				[actions setObject:[NSString stringWithFormat:@"link:%@", [segment url]] forKey:[NSNumber numberWithInt:actionIndex]];
+				[btn addTarget:delegate action:@selector(onSegmentClick:) forControlEvents:UIControlEventTouchDown];
+			}
 			
 			subView = btn;
 		} else if ([[segment type] compare:@"Mention"] == NSOrderedSame) {
@@ -163,11 +202,13 @@
 			btn.frame = CGRectMake(xOffset, yOffset, segWidth, rowHeight);
 			[btn titleLabel].font = font;
 			
-			actionIndex = [segmentActions count];
-			btn.tag = actionIndex;
+			if (actions != nil) {
+				int actionIndex = [actions count];
+				btn.tag = actionIndex;
 			
-			[segmentActions setObject:[NSString stringWithFormat:@"mention:%@", [[segment user] userId]] forKey:[NSNumber numberWithInt:actionIndex]];
-			[btn addTarget:self action:@selector(onSegmentClick:) forControlEvents:UIControlEventTouchDown];
+				[actions setObject:[NSString stringWithFormat:@"mention:%@", [[segment user] userId]] forKey:[NSNumber numberWithInt:actionIndex]];
+				[btn addTarget:delegate action:@selector(onSegmentClick:) forControlEvents:UIControlEventTouchDown];
+			}
 			
 			subView = btn;
 		}
@@ -193,16 +234,10 @@
 				subView.frame = CGRectMake(0, yOffset, segWidth, rowHeight);
 				xOffset = segWidth;
 			}
-			
-			[content addSubview:subView];
+		
+			[view addSubview:subView];
 		}
 	}
-	
-	//	CGRect oldFrame = cell.frame;
-	//	NSLog(@"Old cell height: %.0f", oldFrame.size.height);
-	//	cell.frame = CGRectMake(oldFrame.origin.x, oldFrame.origin.y, oldFrame.size.width, yOffset + rowHeight);
-	//	NSLog(@"New cell height: %.0f", cell.frame.size.height);
-	return cell;
 }
 
 @end

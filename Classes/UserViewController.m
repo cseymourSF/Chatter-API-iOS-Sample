@@ -43,11 +43,11 @@
 
 - initWithUserId:(NSString*)inUserId{
 	NSString* nibName;
-//	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-//		nibName = @"UserPad";
-//	} else {
+	/*if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		nibName = @"UserPad";
+	} else {*/
 		nibName = @"UserPhone";
-//	}
+	//}
 	
 	self = [super initWithNibName:nibName bundle:nil];
 	
@@ -88,7 +88,7 @@
 		[setPhotoBtn setAlpha:1.0];
 	} else {
 		[setPhotoBtn setEnabled:FALSE];
-		[setPhotoBtn setAlpha:0.5];
+		[setPhotoBtn setAlpha:0.0];
 	}
 
 	// Fetch the User.

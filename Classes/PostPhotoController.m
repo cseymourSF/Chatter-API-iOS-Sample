@@ -7,6 +7,7 @@
 //
 
 #import "PostPhotoController.h"
+#import "Config.h"
 
 @implementation PostPhotoController
 
@@ -24,7 +25,7 @@
 	self = [super initWithNibName:nibName bundle:nil];
 	
 	if (self != nil) {		
-		poster = [[UserPhotoPoster alloc] initWithUrl:@"/services/data/v23.0/chatter/users/me/photo"];
+		poster = [[UserPhotoPoster alloc] initWithUrl:[Config addVersionPrefix:@"/chatter/users/me/photo"]];
 	}
 	
 	return self;

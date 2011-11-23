@@ -19,6 +19,7 @@
 //  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "FeedItem.h"
+#import "Config.h"
 
 @implementation FeedItem
 
@@ -41,10 +42,12 @@
 	RKObjectMapping* userMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[User class]];
 	RKObjectMapping* bodyMapping = [[[RKObjectManager sharedManager] mappingProvider] objectMappingForClass:[FeedBody class]];
 	
+	// TODO: This will fail if the "actor" is not a "user". Need to add support for non-user actors.
 	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"actor" toKeyPath:@"author" withMapping:userMapping]];
+	
 	[mapping addRelationshipMapping:[RKObjectRelationshipMapping mappingFromKeyPath:@"body" toKeyPath:@"body" withMapping:bodyMapping]];
 	
-	[manager.router routeClass:[FeedItem class] toResourcePath:@"/services/data/v23.0/chatter/feed-items/(feedItemId)" forMethod:RKRequestMethodGET];
+	[manager.router routeClass:[FeedItem class] toResourcePath:[Config addVersionPrefix:@"/chatter/feed-items/(feedItemId)"] forMethod:RKRequestMethodGET];
 	[manager.mappingProvider addObjectMapping:mapping];
 }
 - (void)dealloc {

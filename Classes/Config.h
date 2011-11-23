@@ -16,4 +16,7 @@
 +(NSString*)tokenUrlPath;
 +(NSString*)authorizeUrl;
 
++(NSString*)addVersionPrefix:(NSString*)url;
++(int)getVersion;
+
 @end
