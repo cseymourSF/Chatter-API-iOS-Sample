@@ -32,6 +32,7 @@
 @synthesize url;
 @synthesize body;
 @synthesize author;
+@synthesize isLikedByCurrentUser;
 
 +(void)setupMapping:(RKObjectManager*)manager {
 	RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[FeedItem class]];

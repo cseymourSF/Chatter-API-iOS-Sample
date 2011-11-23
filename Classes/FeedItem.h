@@ -50,5 +50,7 @@
 @property(nonatomic, retain) FeedBody* body;
 @property(nonatomic, retain) UserSummary* author;
 
+@property(readonly) bool isLikedByCurrentUser;
+
 @end
 

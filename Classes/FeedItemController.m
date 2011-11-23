@@ -18,6 +18,7 @@
 @synthesize actorLbl;
 @synthesize actorImg;
 @synthesize photoFetcher;
+@synthesize likeSwitch;
 
 - initWithFeedItem:(FeedItem*)inFeedItem {
 	self = [super initWithNibName:@"FeedItemPhone" bundle:nil];	
@@ -34,6 +35,7 @@
 	[actorLbl release];
 	[actorImg release];
 	[photoFetcher release];
+	[likeSwitch release];
 		
 	[super dealloc];
 }
@@ -52,6 +54,10 @@
 	[self.dateLbl setText:[dateFormatterOut stringFromDate:date]];
 	[self.actorLbl setText:self.feedItem.author.name];
 	
+	// "Like"
+	self.likeSwitch.on = self.feedItem.isLikedByCurrentUser;
+	[self.likeSwitch addTarget:self action:@selector(toggleLike:) forControlEvents:UIControlEventValueChanged];
+	
 	// Render feed item segments.
 	[FeedController renderFeedItem:self.feedItem 
 						  maxWidth:self.segmentsView.bounds.size.width
@@ -69,6 +75,12 @@
 	// Fetch the photo.
 	self.photoFetcher = [[PhotoFetcher alloc] initWithTag:@"actorPhoto" photoUrl:photoUrlStr delegate:self];
 	[self.photoFetcher fetch];
+}
+
+- (IBAction)toggleLike:(id)sender {
+	NSLog(@"Toggling LIKE");
+	
+	// TODO: POST or DELETE to change the like status.
 }
 
 // =========================

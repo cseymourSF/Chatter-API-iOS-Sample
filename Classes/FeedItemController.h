@@ -15,6 +15,7 @@
 	UILabel* actorLbl;
 	UIImageView* actorImg;
 	UIView* segmentsView;
+	UISwitch* likeSwitch;
 	PhotoFetcher* photoFetcher;
 }
 
@@ -22,10 +23,12 @@
 @property(nonatomic, retain) IBOutlet UILabel* dateLbl;
 @property(nonatomic, retain) IBOutlet UILabel* actorLbl;
 @property(nonatomic, retain) IBOutlet UIImageView* actorImg;
+@property(nonatomic, retain) IBOutlet UISwitch* likeSwitch;
 
 @property(nonatomic, retain) FeedItem* feedItem;
 @property(nonatomic, retain) PhotoFetcher* photoFetcher;
 
 - initWithFeedItem:(FeedItem*)inFeedItem;
-
+- (IBAction)toggleLike:(id)sender;
+	
 @end
